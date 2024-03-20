@@ -1,3 +1,5 @@
+#programado por: Juan Pavas, Andres Rua, Jose Valencia
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView, ListView
 from django.views import View

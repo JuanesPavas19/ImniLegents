@@ -1,3 +1,4 @@
+#programado por: Andres Rua
 from django.urls import path, include
 from .views import * # HomePageView, AboutPageView,LibroIndexView, LibroShowView, LibroCreateView,  LibroDeleteView, NotaIndexView, NotaShowView, NotaCreateView, NotaDeleteView
 	

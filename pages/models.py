@@ -1,4 +1,4 @@
-# Andres Rua y Juan Esteban Pavas
+#programado por: Andres Rua, Juan Pavas y Jose Valencia
 from django.db import models
 
 #para Usuario defecto de django
