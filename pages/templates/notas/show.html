@@ -1,0 +1,24 @@
+{% extends 'pages/base.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block header_title %} {{subtitle}} {% endblock %}
+
+{% block content %}
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://play-lh.googleusercontent.com/imEAd3PykpVSA6bRklnje-aDXeljJKHOJFICdhKJilJlJlWabxqWWtM04hE9Nnh3Bg" class="img-fluid rounded-start">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">
+           {{nota.titulo_nota}}
+        </h5>
+        <p class="card-text">{{nota.contenido_nota}}</p>  
+        
+        <a class="nav-link active" href="{% url 'nota_delete' id=nota.id %}">Borrar notita</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

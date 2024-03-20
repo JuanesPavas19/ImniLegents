@@ -1,0 +1,20 @@
+{% extends 'pages/base.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block header_title %} {{subtitle}}
+<a class="nav-link active" href="{%url 'formota' %}">Crear notas</a> {% endblock %}
+
+{% block content %}
+<div class="row">
+  {% for nota in notas %}
+  <div class="col-md-4 col-lg-3 mb-2">
+    <div class="card">
+      <img src="https://play-lh.googleusercontent.com/imEAd3PykpVSA6bRklnje-aDXeljJKHOJFICdhKJilJlJlWabxqWWtM04hE9Nnh3Bg" class="card-img-top img-card">
+      <div class="card-body text-center">
+        <a href="{% url 'notas' id=nota.id %}"
+          class="btn bg-primary text-black">{{nota.titulo_nota}}</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

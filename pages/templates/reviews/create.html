@@ -1,0 +1,32 @@
+{% extends 'pages/base.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">Crear Review</div>
+          <div class="card-body">
+            {% if form.errors %}
+                <ul id="errors" class="alert alert-danger list-unstyled">
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                </ul>
+            {% endif %}
+            <form method="POST" action="{% url 'forreview' %}">
+              {% csrf_token %}
+              <input type="text" class="form-control mb-2" placeholder="Ingresa el titulo de la review" name="Titulo_Review" value="{{form.data.Titulo_Review }}" />
+              <input type="text" class="form-control mb-2" placeholder="Ingresa el contenido de la review" name="Contenido_Review" value="{{form.data.Contenido_Review }}" />
+              <input type="date" class="form-control mb-2" placeholder="Ingresa la fecha de creacion de la review" name="Fecha_Review" value="{{form.data.Fecha_Review }}" />
+              <input type="submit" class="btn btn-primary" value="Send" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
