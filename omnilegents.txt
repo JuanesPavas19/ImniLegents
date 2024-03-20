@@ -1,0 +1,4 @@
+Git: https://github.com/JuanesPavas19/OmniLegents.git
+Wiki Entrega 1: https://github.com/JuanesPavas19/OmniLegents/wiki/Entrega-1
+
+http://127.0.0.1:8000/         django

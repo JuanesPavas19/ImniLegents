@@ -52,7 +52,7 @@ class LibroIndexView(View):
         viewData = {}
         viewData["title"] = "Libros - Tienda"
         viewData["subtitle"] =  "Listado de libros"
-        viewData["libros"] = Libro.objects.all()
+        viewData["libros"] = Libro.objects.all().order_by('precio') #funcionalidad 4
 
         return render(request, self.template_name, viewData)
 

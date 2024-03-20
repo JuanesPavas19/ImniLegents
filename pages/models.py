@@ -58,3 +58,10 @@ class CustomUser(AbstractUser):
         related_name='customuser_set',
         related_query_name='user'
     )
+    
+class Recordatorio(models.Model):
+    #id
+    titulo = models.CharField(max_length = 40)
+    nota_adicional = models.TextField()
+    fecha = models.DateTimeField()
+    

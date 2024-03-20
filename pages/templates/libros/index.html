@@ -1,14 +1,12 @@
 {% extends 'pages/base.html' %}
 {% block title %} {{title}} {% endblock %}
 {% block header_title %} {{subtitle}}
-{% if user.is_authenticated %}
+{% comment %} {% if user.is_authenticated %}
     {% if user.tipo_usuario == 'Admin' %}
         <!-- Aquí colocas el contenido exclusivo para administradores -->
         <a class="nav-link active" href="{% url 'form' %}">Crear libros</a>
     {% endif %}
-{% endif %}
-<hr>    
-<a class="nav-link active" href="{% url 'form' %}">Crear libros</a>
+{% endif %} {% endcomment %}
 {%endblock%}
 
 
@@ -23,6 +21,7 @@
       <div class="card-body text-center">
         <a href="{% url 'show' id=libro.id %}"
           class="btn bg-primary text-black">{{libro.Titulo}}</a>
+          <p>{{libro.precio}}</p>
       </div>
     </div>
   </div>
