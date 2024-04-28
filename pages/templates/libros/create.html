@@ -1,33 +1,32 @@
-
 {% extends 'pages/base.html' %}
-{% block title %} {{title}} {% endblock %}
+{% block title %} {{ title | translate }} {% endblock %}
 {% block content %}
 {% comment %} programado por: Andres Rua, Jose Valencia y Juan Pavas {% endcomment %}
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header">Crear Libro</div>
+        <div class="card-header">{% trans "Crear Libro" %}</div>
           <div class="card-body">
             {% if form.errors %}
                 <ul id="errors" class="alert alert-danger list-unstyled">
                 {% for field, errors in form.errors.items %}
                     {% for error in errors %}
-                        <li>{{ error }}</li>
+                        <li>{{ error | translate }}</li>
                     {% endfor %}
                 {% endfor %}
                 </ul>
             {% endif %}
             <form method="POST" action="{% url 'form' %}">
               {% csrf_token %}
-              <input type="text" class="form-control mb-2" placeholder="Ingresa el titulo del libro" name="Titulo" value="{{form.data.Titulo }}" />
-              <input type="text" class="form-control mb-2" placeholder="Ingresa el autor del libro" name="Autor" value="{{form.data.Autor }}" />
-              <input type="number" class="form-control mb-2" placeholder="Ingresa el ISBN del libro" name="ISBN" value="{{form.data.ISBN }}" />
-              <input type="number" class="form-control mb-2" placeholder="Ingresa el numero de paginas del libro" name="Numero_paginas" value="{{form.data.Numero_paginas }}" />
-              <input type="text" class="form-control mb-2" placeholder="Ingresa el editorial del libro" name="Editorial" value="{{form.data.Editorial }}" />
-              <input type="date" class="form-control mb-2" placeholder="Ingresa la fecha de publicacion del libro" name="Fecha_publicacion" value="{{form.data.Fecha_publicacion }}" />
-              <input type="number" class="form-control mb-2" placeholder="Ingresa el precio del libro" name="precio" value="{{form.data.precio }}" />
-              <input type="submit" class="btn btn-primary" value="Send" />
+              <input type="text" class="form-control mb-2" placeholder="{% trans "Ingresa el titulo del libro" %}" name="Titulo" value="{{ form.data.Titulo }}" />
+              <input type="text" class="form-control mb-2" placeholder="{% trans "Ingresa el autor del libro" %}" name="Autor" value="{{ form.data.Autor }}" />
+              <input type="number" class="form-control mb-2" placeholder="{% trans "Ingresa el ISBN del libro" %}" name="ISBN" value="{{ form.data.ISBN }}" />
+              <input type="number" class="form-control mb-2" placeholder="{% trans "Ingresa el numero de paginas del libro" %}" name="Numero_paginas" value="{{ form.data.Numero_paginas }}" />
+              <input type="text" class="form-control mb-2" placeholder="{% trans "Ingresa el editorial del libro" %}" name="Editorial" value="{{ form.data.Editorial }}" />
+              <input type="date" class="form-control mb-2" placeholder="{% trans "Ingresa la fecha de publicacion del libro" %}" name="Fecha_publicacion" value="{{ form.data.Fecha_publicacion }}" />
+              <input type="number" class="form-control mb-2" placeholder="{% trans "Ingresa el precio del libro" %}" name="precio" value="{{ form.data.precio }}" />
+              <input type="submit" class="btn btn-primary" value="{% trans "Enviar" %}" />
             </form>
           </div>
         </div>

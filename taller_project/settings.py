@@ -12,9 +12,15 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 #programado por: Juan Pavas
 from pathlib import Path
 import os
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+LANGUAGES = [
+    ('en', _('English')),
+    ('es', _('Spanish'))
+]
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,6 +33,10 @@ SECRET_KEY = 'django-insecure-uj%eaih9eat1w$(o+h+^9gm*j6rp5misc_f%onutsk84)sw)*j
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
 
 
 # Application definition
@@ -49,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'taller_project.urls'

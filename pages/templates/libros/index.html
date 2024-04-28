@@ -1,20 +1,18 @@
-
 {% extends 'pages/base.html' %}
-{% block title %} {{title}} {% endblock %}
-{% block header_title %} {{subtitle}}
+{% block title %} {{ title | translate }} {% endblock %}
+{% block header_title %} {{ subtitle | translate }} {% endblock %}
 {% comment %} programado por: Andres Rua, Jose Valencia y Juan Pavas {% endcomment %}
-{% comment %} {% if user.is_authenticated %}
+{% if user.is_authenticated %}
+<hr> 
+<a class="nav-link active" href="{% url 'form' %}">{% trans "Crear libros" %}</a>
     {% if user.tipo_usuario == 'Admin' %}
         <!-- Aquí colocas el contenido exclusivo para administradores -->
-        <a class="nav-link active" href="{% url 'form' %}">Crear libros</a>
+        <a class="nav-link active" href="{% url 'form' %}">{% trans "Crear libros" %}</a>
     {% endif %}
-{% endif %} {% endcomment %}
-{%endblock%}
-
+{% endif %}
+{% endblock %}
 
 {% block content %}
-
-
 <div class="row">
   {% for libro in libros %}
   <div class="col-md-4 col-lg-3 mb-2">
@@ -22,8 +20,8 @@
       <img src="https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_640.jpg" class="card-img-top img-card">
       <div class="card-body text-center">
         <a href="{% url 'show' id=libro.id %}"
-          class="btn bg-primary text-black">{{libro.Titulo}}</a>
-          <p>{{libro.precio}}</p>
+          class="btn bg-primary text-black">{{ libro.Titulo | translate }}</a>
+          <p>{{ libro.precio }}</p>
       </div>
     </div>
   </div>

@@ -1,17 +1,15 @@
-
-
 {% extends 'pages/base.html' %}
-{% block title %} Omnilegents - Login {% endblock %}
+{% block title %}{% trans 'Omnilegents - Login' %}{% endblock %}
 {% block content %}
-<!-- programado por: Juan Pavas -->
+<!-- {% trans "programmed by: Juan Pavas" %} -->
 <section>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">Login</div>
+                    <div class="card-header">{% trans 'Inicio de Sesión' %}</div>
                     <div class="card-body">
-                        <h4 class="card-title">Ingresa tus Datos</h4><hr>
+                        <h4 class="card-title">{% trans 'Ingresa tus Datos' %}</h4><hr>
                         {% if messages %}
                             {% for message in messages %}
                                 <div class="alert alert-danger">{{ message }}</div>
@@ -24,14 +22,14 @@
                                 <label for="" class="form-label">{{ campo.label }}</label>
                                 <input type="{{ campo.field.widget.input_type }}"
                                   class="form-control" 
-                                  name="{{ campo.name }}" id="" aria-describedby="helpId" placeholder="Ingrese {{ campo.label }}">
+                                  name="{{ campo.name }}" id="" aria-describedby="helpId" placeholder="{% trans 'Ingrese' %} {{ campo.label }}">
                               </div>
                               <div class="col-12 help-text">{{ campo.errors }}</div>
             
                             {% endfor %}
-                            <input class="btn btn-primary" type="submit" value="Ingresar">
+                            <input class="btn btn-primary" type="submit" value="{% trans 'Ingresar' %}">
                                 <hr>
-                                <p style="margin-bottom: 4px;">¿No te has registrado? <a href="{% url 'signup' %}">Registrarme</a></p>
+                                <p style="margin-bottom: 4px;">{% trans '¿No te has registrado?' %} <a href="{% url 'signup' %}">{% trans 'Registrarme' %}</a></p>
                         </form>
                     </div>
                 </div>

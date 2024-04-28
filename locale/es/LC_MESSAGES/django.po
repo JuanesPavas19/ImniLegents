@@ -1,0 +1,427 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-28 14:28-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\pages\templates\about.html:14
+msgid "Esperamos que te guste esta tienda"
+msgstr ""
+
+#: .\pages\templates\about.html:18
+msgid "Libros about"
+msgstr ""
+
+#: .\pages\templates\cart\index.html:10
+msgid "Libros disponibles"
+msgstr ""
+
+#: .\pages\templates\cart\index.html:14 .\pages\templates\cart\index.html:33
+msgid "Id:"
+msgstr ""
+
+#: .\pages\templates\cart\index.html:15 .\pages\templates\cart\index.html:34
+msgid "Título:"
+msgstr ""
+
+#: .\pages\templates\cart\index.html:16 .\pages\templates\cart\index.html:35
+msgid "Precio:"
+msgstr ""
+
+#: .\pages\templates\cart\index.html:19
+msgid "Agregar al carrito"
+msgstr ""
+
+#: .\pages\templates\cart\index.html:29
+msgid "Libros en carrito"
+msgstr ""
+
+#: .\pages\templates\cart\index.html:41
+msgid "Eliminar todos los libros del carrito"
+msgstr ""
+
+#: .\pages\templates\home.html:2
+msgid "Omnilegents"
+msgstr ""
+
+#: .\pages\templates\home.html:8 .\pages\templates\pages\base.html:25
+msgid "Libros"
+msgstr ""
+
+#: .\pages\templates\libros\create.html:10 .\pages\views.py:116
+#: .\pages\views.py:127
+msgid "Crear Libro"
+msgstr ""
+
+#: .\pages\templates\libros\create.html:23
+msgid "Ingresa el titulo del libro"
+msgstr ""
+
+#: .\pages\templates\libros\create.html:24
+msgid "Ingresa el autor del libro"
+msgstr ""
+
+#: .\pages\templates\libros\create.html:25
+msgid "Ingresa el ISBN del libro"
+msgstr ""
+
+#: .\pages\templates\libros\create.html:26
+msgid "Ingresa el numero de paginas del libro"
+msgstr ""
+
+#: .\pages\templates\libros\create.html:27
+msgid "Ingresa el editorial del libro"
+msgstr ""
+
+#: .\pages\templates\libros\create.html:28
+msgid "Ingresa la fecha de publicacion del libro"
+msgstr ""
+
+#: .\pages\templates\libros\create.html:29
+msgid "Ingresa el precio del libro"
+msgstr ""
+
+#: .\pages\templates\libros\create.html:30
+#: .\pages\templates\notas\create.html:27
+#: .\pages\templates\reviews\create.html:35
+msgid "Enviar"
+msgstr ""
+
+#: .\pages\templates\libros\index.html:8 .\pages\templates\libros\index.html:11
+msgid "Crear libros"
+msgstr ""
+
+#: .\pages\templates\libros\show.html:34
+msgid "Borrar libro"
+msgstr ""
+
+#: .\pages\templates\notas\create.html:10 .\pages\views.py:206
+msgid "Crear Notita"
+msgstr ""
+
+#: .\pages\templates\notas\create.html:23
+msgid "Ingresa el titulo de la nota"
+msgstr ""
+
+#: .\pages\templates\notas\create.html:24
+msgid "Ingresa el contenido de la nota"
+msgstr ""
+
+#: .\pages\templates\notas\create.html:25
+msgid "Ingresa la fecha de creacion de la nota"
+msgstr ""
+
+#: .\pages\templates\notas\create.html:26
+msgid "Ingresa la fecha de modificacion de la nota"
+msgstr ""
+
+#: .\pages\templates\notas\index.html:6
+msgid "Crear notas"
+msgstr ""
+
+#: .\pages\templates\notas\show.html:19
+msgid "Borrar notita"
+msgstr ""
+
+#: .\pages\templates\pages\base.html:11
+msgid "Tienda de libros"
+msgstr ""
+
+#: .\pages\templates\pages\base.html:17
+msgid "Regresar al inicio"
+msgstr ""
+
+#: .\pages\templates\pages\base.html:24
+msgid "About"
+msgstr ""
+
+#: .\pages\templates\pages\base.html:26 .\pages\views.py:156
+msgid "Mis notas"
+msgstr ""
+
+#: .\pages\templates\pages\base.html:27
+msgid "Mis reviews"
+msgstr ""
+
+#: .\pages\templates\pages\base.html:28
+msgid "Carrito"
+msgstr ""
+
+#: .\pages\templates\pages\base.html:31
+msgid "Hola Admin"
+msgstr ""
+
+#: .\pages\templates\pages\base.html:33
+msgid "Logout"
+msgstr ""
+
+#: .\pages\templates\pages\base.html:36
+msgid "Login"
+msgstr ""
+
+#: .\pages\templates\pages\base.html:37
+msgid "Sign Up"
+msgstr ""
+
+#: .\pages\templates\pages\base.html:46
+msgid "Omnilegents - Tienda de libros"
+msgstr ""
+
+#: .\pages\templates\pages\base.html:63
+msgid "Desarrollado por"
+msgstr ""
+
+#: .\pages\templates\registration\SignUp.html:3
+msgid "Omnilegents - Sign Up"
+msgstr ""
+
+#: .\pages\templates\registration\SignUp.html:13
+msgid "Registro"
+msgstr ""
+
+#: .\pages\templates\registration\SignUp.html:17
+msgid "Por favor corrija los siguientes errores:"
+msgstr ""
+
+#: .\pages\templates\registration\SignUp.html:30
+msgid "Nombre de Usuario:"
+msgstr ""
+
+#: .\pages\templates\registration\SignUp.html:34
+msgid "Correo:"
+msgstr ""
+
+#: .\pages\templates\registration\SignUp.html:38
+msgid "Contraseña:"
+msgstr ""
+
+#: .\pages\templates\registration\SignUp.html:42
+msgid "Confirme Contraseña:"
+msgstr ""
+
+#: .\pages\templates\registration\SignUp.html:46
+msgid "Tipo de Usuario:"
+msgstr ""
+
+#: .\pages\templates\registration\SignUp.html:48
+msgid "Administrador"
+msgstr ""
+
+#: .\pages\templates\registration\SignUp.html:49
+msgid "Cliente"
+msgstr ""
+
+#: .\pages\templates\registration\SignUp.html:52
+msgid "Registrarse"
+msgstr ""
+
+#: .\pages\templates\registration\SignUp.html:58
+msgid "Ya tienes una Cuenta?"
+msgstr ""
+
+#: .\pages\templates\registration\SignUp.html:58
+msgid "Iniciar Sesión"
+msgstr ""
+
+#: .\pages\templates\registration\login.html:2
+msgid "Omnilegents - Login"
+msgstr ""
+
+#: .\pages\templates\registration\login.html:4
+msgid "programmed by: Juan Pavas"
+msgstr ""
+
+#: .\pages\templates\registration\login.html:10
+msgid "Inicio de Sesión"
+msgstr ""
+
+#: .\pages\templates\registration\login.html:12
+msgid "Ingresa tus Datos"
+msgstr ""
+
+#: .\pages\templates\registration\login.html:25
+msgid "Ingrese"
+msgstr ""
+
+#: .\pages\templates\registration\login.html:30
+msgid "Ingresar"
+msgstr ""
+
+#: .\pages\templates\registration\login.html:32
+msgid "¿No te has registrado?"
+msgstr ""
+
+#: .\pages\templates\registration\login.html:32
+msgid "Registrarme"
+msgstr ""
+
+#: .\pages\templates\reviews\create.html:10 .\pages\views.py:272
+#: .\pages\views.py:284
+msgid "Crear Review"
+msgstr ""
+
+#: .\pages\templates\reviews\create.html:24
+msgid "Título de la Review:"
+msgstr ""
+
+#: .\pages\templates\reviews\create.html:25
+msgid "Ingresa el título de la review"
+msgstr ""
+
+#: .\pages\templates\reviews\create.html:28
+msgid "Contenido de la Review:"
+msgstr ""
+
+#: .\pages\templates\reviews\create.html:29
+msgid "Ingresa el contenido de la review"
+msgstr ""
+
+#: .\pages\templates\reviews\create.html:32
+msgid "Fecha de Creación de la Review:"
+msgstr ""
+
+#: .\pages\templates\reviews\index.html:4
+msgid "Crear reviews"
+msgstr ""
+
+#: .\pages\templates\reviews\show.html:18
+msgid "Borrar review"
+msgstr ""
+
+#: .\pages\views.py:46
+msgid ""
+"En esta tienda de libros, queremos que comprendas la importancia de leer y "
+"de tener hábitos de lectura"
+msgstr ""
+
+#: .\pages\views.py:47
+msgid "¿Quiénes somos?"
+msgstr ""
+
+#: .\pages\views.py:48
+msgid ""
+"Somos un grupo de estudiantes preocupados por la falta de lectura que hay en "
+"la ciudad"
+msgstr ""
+
+#: .\pages\views.py:58
+msgid "Libros - Tienda"
+msgstr ""
+
+#: .\pages\views.py:59
+msgid "Listado de libros"
+msgstr ""
+
+#: .\pages\views.py:71
+msgid "El id del libro debe ser mayor a 1"
+msgstr ""
+
+#: .\pages\views.py:79
+msgid "{} - Tienda de Libros"
+msgstr ""
+
+#: .\pages\views.py:80
+msgid "{} - Informacion del libro"
+msgstr ""
+
+#: .\pages\views.py:94 .\pages\views.py:140
+msgid "Libros - Tienda en línea"
+msgstr ""
+
+#: .\pages\views.py:95 .\pages\views.py:141
+msgid "Lista de Libros"
+msgstr ""
+
+#: .\pages\views.py:107
+msgid "El Precio debe ser mayor a Cero."
+msgstr ""
+
+#: .\pages\views.py:157
+msgid "Notas"
+msgstr ""
+
+#: .\pages\views.py:169
+msgid "El id de la nota debe ser mayor a 1"
+msgstr ""
+
+#: .\pages\views.py:176
+msgid " - Mis notas"
+msgstr ""
+
+#: .\pages\views.py:177
+msgid " - Notas"
+msgstr ""
+
+#: .\pages\views.py:194
+msgid "Crear Notas"
+msgstr ""
+
+#: .\pages\views.py:217
+msgid "nota - Tienda en línea"
+msgstr ""
+
+#: .\pages\views.py:218
+msgid "Lista de notitas"
+msgstr ""
+
+#: .\pages\views.py:233
+msgid "Mis Reviews"
+msgstr ""
+
+#: .\pages\views.py:234
+msgid "Reviews"
+msgstr ""
+
+#: .\pages\views.py:246
+msgid "El id de la review debe ser mayor a 1"
+msgstr ""
+
+#: .\pages\views.py:253
+msgid " - Mis reviews"
+msgstr ""
+
+#: .\pages\views.py:254
+msgid " - Reviews"
+msgstr ""
+
+#: .\pages\views.py:295
+msgid "Review - Tienda en línea"
+msgstr ""
+
+#: .\pages\views.py:296
+msgid "Lista de Reviews"
+msgstr ""
+
+#: .\pages\views.py:319
+msgid "Cart - Tienda en línea"
+msgstr ""
+
+#: .\pages\views.py:320
+msgid "Carrito de Compras"
+msgstr ""
+
+#: .\pages\views.py:351
+msgid "Esta vista solo es accesible para administradores."
+msgstr ""
+
+#: .\taller_project\settings.py:21
+msgid "English"
+msgstr ""
+
+#: .\taller_project\settings.py:22
+msgid "Spanish"
+msgstr ""

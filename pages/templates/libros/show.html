@@ -1,7 +1,6 @@
-
 {% extends 'pages/base.html' %}
-{% block title %} {{title}} {% endblock %}
-{% block header_title %} {{subtitle}} {% endblock %}
+{% block title %} {{ title | translate }} {% endblock %}
+{% block header_title %} {{ subtitle | translate }} {% endblock %}
 {% comment %} programado por: Andres Rua, Jose Valencia y Juan Pavas {% endcomment %}
 {% block content %}
 <div class="card mb-3">
@@ -11,33 +10,28 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-
-        <h5 class="card-title">{{libro.Titulo}}</h5>
+        <h5 class="card-title">{{ libro.Titulo | translate }}</h5>
         {% if libro.precio > 100000 %}
-          <p class="card-text" style="color: red;">{{libro.precio}}</p>
+          <p class="card-text" style="color: red;">{{ libro.precio }}</p>
         {% else %}
-          <p class="card-text">{{libro.precio}}</p>
+          <p class="card-text">{{ libro.precio }}</p>
         {% endif %}
-        <p class="card-text text-black">{{libro.Autor}}
-        <div class="card-text text-black">{{libro.ISBN}}</div>
-        {% comment %} <div class="card-text text-black">{{libro.Numero_paginas}}</div> {% endcomment %}
+        <p class="card-text text-black">{{ libro.Autor | translate }}</p>
+        <div class="card-text text-black">{{ libro.ISBN }}</div>
+        {% comment %} <div class="card-text text-black">{{ libro.Numero_paginas }}</div> {% endcomment %}
         {% if libro.Numero_paginas > 600 %}
-            <p class="card-text" style="color: red;">{{libro.Numero_paginas}}</p>
+            <p class="card-text" style="color: red;">{{ libro.Numero_paginas }}</p>
         {% elif libro.Numero_paginas < 300 %}
-            <p class="card-text" style="color: green;">{{libro.Numero_paginas}}</p>
+            <p class="card-text" style="color: green;">{{ libro.Numero_paginas }}</p>
         {% else %}
-            <p class="card-text" style="color: orange;">{{libro.Numero_paginas}}</p>
+            <p class="card-text" style="color: orange;">{{ libro.Numero_paginas }}</p>
         {% endif %}
-          <div class="card-text text-black">{{libro.Fecha_publicacion}}</div>
-          <div class="card-text text-black">{{libro.Editorial}}</div>
+          <div class="card-text text-black">{{ libro.Fecha_publicacion }}</div>
+          <div class="card-text text-black">{{ libro.Editorial }}</div>
         </p>
-        <a class="nav-link active" href="{% url 'libro_delete' id=libro.id %}">Borrar libro</a>
+        <a class="nav-link active" href="{% url 'libro_delete' id=libro.id %}">{% trans "Borrar libro" %}</a>
       </div>
-        
     </div>
-      
   </div>
-
 </div>
-
 {% endblock %}

@@ -1,20 +1,19 @@
-
 {% extends 'pages/base.html' %}
 {% block title %}
-  Omnilegents - Sign Up
+  {% trans 'Omnilegents - Sign Up' %}
 {% endblock %}
 {% block content %}
-{% comment %} programado por: Juan Pavas {% endcomment %}
+{% comment %} {% trans 'programmed by: Juan Pavas' %} {% endcomment %}
 <section>
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="card">
-            <div class="card-header">Sign Up</div>
+            <div class="card-header">{% trans 'Registro' %}</div>
             <div class="card-body">
               {% if form.errors %}
                 <div class="alert alert-danger">
-                  <p>Please correct the following errors:</p>
+                  <p>{% trans 'Por favor corrija los siguientes errores:' %}</p>
                   <ul>
                     {% for field, errors in form.errors.items %}
                       {% for error in errors %}
@@ -27,35 +26,35 @@
               <form method="post">
                 {% csrf_token %}
                 <div class="mb-3">
-                  <label for="id_username" class="form-label">Username:</label>
+                  <label for="id_username" class="form-label">{% trans 'Nombre de Usuario:' %}</label>
                   <input type="text" name="username" class="form-control" id="id_username" />
                 </div>
                 <div class="mb-3">
-                  <label for="id_email" class="form-label">Email:</label>
+                  <label for="id_email" class="form-label">{% trans 'Correo:' %}</label>
                   <input type="email" name="email" class="form-control" id="id_email" />
                 </div>
                 <div class="mb-3">
-                  <label for="id_password1" class="form-label">Password:</label>
+                  <label for="id_password1" class="form-label">{% trans 'Contraseña:' %}</label>
                   <input type="password" name="password1" class="form-control" id="id_password1" />
                 </div>
                 <div class="mb-3">
-                  <label for="id_password2" class="form-label">Confirm Password:</label>
+                  <label for="id_password2" class="form-label">{% trans 'Confirme Contraseña:' %}</label>
                   <input type="password" name="password2" class="form-control" id="id_password2" />
                 </div>
                 <div class="mb-3">
-                  <label for="id_tipo_usuario" class="form-label">Tipo de Usuario:</label>
+                  <label for="id_tipo_usuario" class="form-label">{% trans 'Tipo de Usuario:' %}</label>
                   <select name="tipo_usuario" class="form-select form-control" id="id_tipo_usuario">
-                    <option value="Admin">Administrador</option>
-                    <option value="Cliente">Cliente</option>
+                    <option value="Admin">{% trans 'Administrador' %}</option>
+                    <option value="Cliente">{% trans 'Cliente' %}</option>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Sign Up</button>
+                <button type="submit" class="btn btn-primary">{% trans 'Registrarse' %}</button>
               </form>
             </div>
           </div>
           <div class="text-center mt-3">
             <p>
-              ¿Ya tienes una cuenta? <a href="{% url 'login' %}">Iniciar sesión</a>
+              {% trans 'Ya tienes una Cuenta?' %} <a href="{% url 'login' %}">{% trans 'Iniciar Sesión' %}</a>
             </p>
           </div>
         </div>

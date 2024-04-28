@@ -21,6 +21,9 @@ from .forms import CustomUserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import LoginForm
 
+#translation
+from django.conf import settings
+from django.utils.translation import gettext_lazy as _
 
 # Create your views here.
 #hola munod como estas
@@ -40,9 +43,9 @@ class AboutPageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
-            "title": "En esta tienda de libros, queremos que comprendas la importancia de leer y de tener habitos de lectura",
-            "subtitle": "¿Quienes somos?",
-            "description": "Somos un grupo de estudiantes preocupados por la falta de lectura que hay en la ciudad ",
+            "title": _("En esta tienda de libros, queremos que comprendas la importancia de leer y de tener hábitos de lectura"),
+            "subtitle": _("¿Quiénes somos?"),
+            "description": _("Somos un grupo de estudiantes preocupados por la falta de lectura que hay en la ciudad"),
         })
 
         return context
@@ -52,8 +55,8 @@ class LibroIndexView(View):
 
     def get(self, request):
         viewData = {}
-        viewData["title"] = "Libros - Tienda"
-        viewData["subtitle"] =  "Listado de libros"
+        viewData["title"] = _("Libros - Tienda")
+        viewData["subtitle"] =  _("Listado de libros")
         viewData["libros"] = Libro.objects.all().order_by('precio') #funcionalidad 4
 
         return render(request, self.template_name, viewData)
@@ -65,14 +68,16 @@ class LibroShowView(View):
         try:
             libro_id = int(id)
             if libro_id < 1:
-                raise ValueError("El id del libro debe ser mayor a 1")
+                raise ValueError(_("El id del libro debe ser mayor a 1"))
             libro = get_object_or_404(Libro, pk=libro_id)
         except (ValueError, IndexError):
             return HttpResponseRedirect(reverse('home'))
 
         viewData = {
-            "title": libro.Titulo + " - Tienda de Libros",
-            "subtitle": libro.Titulo + " - Informacion del libro",
+            #"title": libro.Titulo + _(" - Tienda de Libros"),
+            #"subtitle": libro.Titulo + _(" - Informacion del libro"),
+            "title": _("{} - Tienda de Libros").format(libro.Titulo),
+            "subtitle": _("{} - Informacion del libro").format(libro.Titulo),
             "libro": libro,
         }
 
@@ -86,8 +91,8 @@ class LibroListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Libros - Tienda en linea'
-        context['subtitle'] = 'Lista de Libros'
+        context['title'] = _('Libros - Tienda en línea')
+        context['subtitle'] = _('Lista de Libros')
         return context   
 
 
@@ -99,7 +104,7 @@ class LibroForm(forms.ModelForm):
     def clean_precio(self):
         precio = self.cleaned_data.get('precio')
         if precio is not None and precio <= 0:
-            raise ValidationError('Price must be greater than zero.')
+            raise ValidationError(_('El Precio debe ser mayor a Cero.'))
         return precio
 
 class LibroCreateView(View):
@@ -108,7 +113,7 @@ class LibroCreateView(View):
     def get(self, request):
         form = LibroForm()
         viewData = {}
-        viewData["title"] = "Crear Libro"
+        viewData["title"] = _("Crear Libro")
         viewData["form"] = form
         return render(request, self.template_name, viewData)
 
@@ -119,7 +124,7 @@ class LibroCreateView(View):
             return redirect('index')
         else:
             viewData = {}
-            viewData["title"] = "Crear Libro"
+            viewData["title"] = _("Crear Libro")
             viewData["form"] = form
         return render(request, self.template_name, viewData)
 
@@ -132,8 +137,8 @@ class LibroListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Libros - Tienda en linea'
-        context['subtitle'] = 'Lista de Libros'
+        context['title'] = _('Libros - Tienda en línea')
+        context['subtitle'] = _('Lista de Libros')
         return context   
 
 class LibroDeleteView(View):
@@ -148,31 +153,31 @@ class NotaIndexView(View):
 
     def get(self, request):
         viewData = {}
-        viewData["title"] = "Mis notas"
-        viewData["subtitle"] =  "Notas"
+        viewData["title"] = _("Mis notas")
+        viewData["subtitle"] = _("Notas")
         viewData["notas"] = Nota.objects.all()
 
-        return render (request, self.template_name, viewData)
+        return render(request, self.template_name, viewData)
 
 class NotaShowView(View):
     template_name = 'notas/show.html'
 
-    def get(self,request, id):
+    def get(self, request, id):
         try:
             nota_id = int(id)
             if nota_id < 1:
-                raise ValueError("El id de la nota debe ser mayor a 1")
+                raise ValueError(_("El id de la nota debe ser mayor a 1"))
             nota = get_object_or_404(Nota, pk=nota_id)
         except (ValueError, IndexError):
-            return HttpResponseRedirect (reverse('home'))
+            return HttpResponseRedirect(reverse('home'))
         
         viewData = {}
         nota = get_object_or_404(Nota, pk=nota_id)
-        viewData["title"] = nota.titulo_nota + " - Mis notas"
-        viewData["subtitle"] = nota.titulo_nota + " - Notas"
+        viewData["title"] = nota.titulo_nota + _(" - Mis notas")
+        viewData["subtitle"] = nota.titulo_nota + _(" - Notas")
         viewData["nota"] = nota
 
-        return render (request, self.template_name, viewData)
+        return render(request, self.template_name, viewData)
     
     
 class NotaForm(forms.ModelForm):
@@ -186,7 +191,7 @@ class NotaCreateView(View):
     def get(self, request):
         form = NotaForm()
         viewData = {}
-        viewData["title"] = "Crear Notas"
+        viewData["title"] = _("Crear Notas")
         viewData["form"] = form
         return render(request, self.template_name, viewData)
 
@@ -198,7 +203,7 @@ class NotaCreateView(View):
 
         else:
             viewData = {}
-            viewData["title"] = "Crear Notita"
+            viewData["title"] = _("Crear Notita")
             viewData["form"] = form
         return render(request, self.template_name, viewData)
     
@@ -209,9 +214,9 @@ class NotaListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'nota - Tienda en linea'
-        context['subtitle'] = 'Lista de notitas'
-        return context   
+        context['title'] = _('nota - Tienda en línea')
+        context['subtitle'] = _('Lista de notitas')
+        return context
     
 class NotaDeleteView(View):
     def get(self, request, id):
@@ -225,8 +230,8 @@ class ReviewIndexView(View):
 
     def get(self, request):
         viewData = {}
-        viewData["title"] = "Mis Reviews"
-        viewData["subtitle"] =  "Reviews"
+        viewData["title"] = _("Mis Reviews")
+        viewData["subtitle"] = _("Reviews")
         viewData["reviews"] = Review.objects.all()
 
         return render (request, self.template_name, viewData)
@@ -234,19 +239,19 @@ class ReviewIndexView(View):
 class ReviewShowView(View):
     template_name = 'reviews/show.html'
 
-    def get(self,request, id):
+    def get(self, request, id):
         try:
             review_id = int(id)
             if review_id < 1:
-                raise ValueError("El id de la review debe ser mayor a 1")
+                raise ValueError(_("El id de la review debe ser mayor a 1"))
             review = get_object_or_404(Review, pk=review_id)
         except (ValueError, IndexError):
             return HttpResponseRedirect (reverse('home'))
         
         viewData = {}
         review = get_object_or_404(Review, pk=review_id)
-        viewData["title"] = review.Titulo_Review + " - Mis reviews"
-        viewData["subtitle"] = review.Titulo_Review + " - Reviews"
+        viewData["title"] = review.Titulo_Review + _(" - Mis reviews")
+        viewData["subtitle"] = review.Titulo_Review + _(" - Reviews")
         viewData["review"] = review
 
         return render (request, self.template_name, viewData)
@@ -264,7 +269,7 @@ class ReviewCreateView(View):
     def get(self, request):
         form = ReviewForm()
         viewData = {}
-        viewData["title"] = "Crear Review"
+        viewData["title"] = _("Crear Review")
         viewData["form"] = form
         return render(request, self.template_name, viewData)
 
@@ -276,7 +281,7 @@ class ReviewCreateView(View):
 
         else:
             viewData = {}
-            viewData["title"] = "Crear Review"
+            viewData["title"] = _("Crear Review")
             viewData["form"] = form
         return render(request, self.template_name, viewData)
     
@@ -287,8 +292,8 @@ class ReviewListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Review - Tienda en linea'
-        context['subtitle'] = 'Lista de Reviews'
+        context['title'] = _('Review - Tienda en línea')
+        context['subtitle'] = _('Lista de Reviews')
         return context  
 
 class ReviewDeleteView(View):
@@ -302,17 +307,17 @@ class CartView(View):
     template_name = 'cart/index.html'
     
     def get(self, request):
-        # Get cart libros from session
+        # Obtener los libros del carrito desde la sesión
         cart_libro_ids = request.session.get('cart_libro_ids', [])
-        # Get libros from the database based on the IDs in the cart
+        # Obtener los libros de la base de datos basados en los IDs en el carrito
         cart_libros = Libro.objects.filter(id__in=cart_libro_ids)
 
         available_libros = Libro.objects.exclude(id__in=cart_libro_ids)
 
-        # Prepare data for the view
+        # Preparar los datos para la vista
         view_data = {
-            'title': 'Cart - Online Store',
-            'subtitle': 'Shopping Cart',
+            'title': _('Cart - Tienda en línea'),
+            'subtitle': _('Carrito de Compras'),
             'cart_libros': cart_libros,
             'available_libros': available_libros,
         }
@@ -320,7 +325,7 @@ class CartView(View):
         return render(request, self.template_name, view_data)
 
     def post(self, request, libro_id):
-        # Get cart libros from session and add the new libro
+        # Obtener los libros del carrito desde la sesión y agregar el nuevo libro
         cart_libro_ids = request.session.get('cart_libro_ids', [])
         cart_libro_ids.append(libro_id)
         request.session['cart_libro_ids'] = cart_libro_ids
@@ -329,7 +334,7 @@ class CartView(View):
 
 class CartRemoveAllView(View):
     def post(self, request):
-        # Remove all libros from cart in session
+        # Eliminar todos los libros del carrito en la sesión
         if 'cart_libro_ids' in request.session:
             del request.session['cart_libro_ids']
 
@@ -337,16 +342,15 @@ class CartRemoveAllView(View):
     
     
 
-#verificación de admin
+# Verificación de administrador
 def admin_check(user):
     return user.tipo_usuario == 'admin'
 
 @user_passes_test(admin_check)
 def admin_only_view(request):
-    return HttpResponse("Esta vista solo es accesible para administradores.")
+    return HttpResponse(_("Esta vista solo es accesible para administradores."))
 
-#signuo
-
+# Registro de usuario
 class SignupView(View):
     def get(self, request):
         form = CustomUserCreationForm()

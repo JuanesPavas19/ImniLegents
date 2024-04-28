@@ -1,22 +1,20 @@
-
 {% extends 'pages/base.html' %}
 
-{% block title %} {{title}} {% endblock %}
-{% block header_title %} {{subtitle}} {% endblock %}
+{% block title %} {{ title | translate }} {% endblock %}
+{% block header_title %} {{ subtitle | translate }} {% endblock %}
 {% comment %} programado por: Andres Rua{% endcomment %}
 {% block content %}
 <div class="container">
   <div class="row">
     <div class="col-lg-4 ms-auto">
-      <p class="lead">{{description}}</p>
+      <p class="lead">{{ description | translate }}</p>
     </div>
     <div class="col-lg-4 me-auto">
-      <p class="lead">Esperamos que te guste esta tienda</p>
+      <p class="lead">{% trans "Esperamos que te guste esta tienda" %}</p>
     </div>
-    <div class ="post-text-box text-black">
-        <img src = "https://assets.teenvogue.com/photos/5e6bffbbdee1770008c6d9bd/16:9/w_2560%2Cc_limit/GettyImages-577674005.jpg" 
-                    alt="Libros about" class = "img-fluid" style="width: 350px;" >
-    </div>
+    <div class="post-text-box text-black">
+      <img src="https://assets.teenvogue.com/photos/5e6bffbbdee1770008c6d9bd/16:9/w_2560%2Cc_limit/GettyImages-577674005.jpg" 
+           alt="{% trans "Libros about" %}" class="img-fluid" style="width: 350px;">
     </div>
   </div>
 </div>

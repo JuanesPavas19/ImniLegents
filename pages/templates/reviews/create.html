@@ -1,4 +1,3 @@
-
 {% extends 'pages/base.html' %}
 {% block title %} {{title}} {% endblock %}
 {% block content %}
@@ -7,7 +6,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header">Crear Review</div>
+        <div class="card-header">{% trans 'Crear Review' %}</div>
           <div class="card-body">
             {% if form.errors %}
                 <ul id="errors" class="alert alert-danger list-unstyled">
@@ -20,10 +19,19 @@
             {% endif %}
             <form method="POST" action="{% url 'forreview' %}">
               {% csrf_token %}
-              <input type="text" class="form-control mb-2" placeholder="Ingresa el titulo de la review" name="Titulo_Review" value="{{form.data.Titulo_Review }}" />
-              <input type="text" class="form-control mb-2" placeholder="Ingresa el contenido de la review" name="Contenido_Review" value="{{form.data.Contenido_Review }}" />
-              <input type="date" class="form-control mb-2" placeholder="Ingresa la fecha de creacion de la review" name="Fecha_Review" value="{{form.data.Fecha_Review }}" />
-              <input type="submit" class="btn btn-primary" value="Send" />
+              <div class="mb-2">
+                <label for="id_Titulo_Review">{% trans 'Título de la Review:' %}</label>
+                <input type="text" class="form-control" id="id_Titulo_Review" name="Titulo_Review" placeholder="{% trans 'Ingresa el título de la review' %}" value="{{form.data.Titulo_Review }}" />
+              </div>
+              <div class="mb-2">
+                <label for="id_Contenido_Review">{% trans 'Contenido de la Review:' %}</label>
+                <input type="text" class="form-control" id="id_Contenido_Review" name="Contenido_Review" placeholder="{% trans 'Ingresa el contenido de la review' %}" value="{{form.data.Contenido_Review }}" />
+              </div>
+              <div class="mb-2">
+                <label for="id_Fecha_Review">{% trans 'Fecha de Creación de la Review:' %}</label>
+                <input type="date" class="form-control" id="id_Fecha_Review" name="Fecha_Review" value="{{form.data.Fecha_Review }}" />
+              </div>
+              <input type="submit" class="btn btn-primary" value="{% trans 'Enviar' %}" />
             </form>
           </div>
         </div>
