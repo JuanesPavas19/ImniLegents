@@ -1,13 +1,17 @@
 {% extends 'pages/base.html' %}
+{% load i18n %}
 
-{% block title %} {{ title | translate }} {% endblock %}
-{% block header_title %} {{ subtitle | translate }} {% endblock %}
+{% block title %}
+  {% trans "Omnilegents - Acerca De" %}
+{% endblock %}
+{% block header_title %} {{ subtitle }} {% endblock %}
 {% comment %} programado por: Andres Rua{% endcomment %}
 {% block content %}
 <div class="container">
   <div class="row">
+    <p class="lead">{{title}}</p>
     <div class="col-lg-4 ms-auto">
-      <p class="lead">{{ description | translate }}</p>
+      <p class="lead">{{ description }}</p>
     </div>
     <div class="col-lg-4 me-auto">
       <p class="lead">{% trans "Esperamos que te guste esta tienda" %}</p>

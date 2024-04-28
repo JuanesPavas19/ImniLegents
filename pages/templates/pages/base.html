@@ -1,13 +1,14 @@
 {% load static %}
+{% load i18n %}
 {% comment %} programado por: Andres Rua, Jose Valencia y Juan Pavas {% endcomment %}
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
   <link href="{% static 'pages/app.css' %}" rel="stylesheet" />
-  <title>{% block title %}'{% trans 'Tienda de libros' %}'{% endblock %}</title>
+  <title>{% block title %}{% trans 'Tienda de libros' %}{% endblock %}</title>
 </head>
 <body>
   <!-- header -->
@@ -29,11 +30,11 @@
               {% if user.tipo_usuario == 'Admin' %}
                   <p style="margin: 0%;" class="nav-link active" >{% trans 'Hola Admin' %}</p> 
               {% endif %}
-            <a class="nav-link active" href="{% url 'logout' %}">{% trans 'Logout' %}</a>
+            <a class="nav-link active" href="{% url 'logout' %}">{% trans 'Cerrar Sesión' %}</a>
             <p style="margin: 0%;" class="nav-link active" >{{ user.username }}</p> <!--pasar todos los estylos necesarios-->
           {% else %}
-            <a class="nav-link active" href="{% url 'login' %}">{% trans 'Login' %}</a>
-            <a class="nav-link active" href="{% url 'signup' %}">{% trans 'Sign Up' %}</a>
+            <a class="nav-link active" href="{% url 'login' %}">{% trans 'Iniciar Sesión' %}</a>
+            <a class="nav-link active" href="{% url 'signup' %}">{% trans 'Registrarse' %}</a>
           {% endif %}
         </div>
       </div>
@@ -56,20 +57,20 @@
 
 <!-- footer -->
 {% block footer %}
-<div class="copyright py-4 text-center text-white">
-  <div class="container">
+<div class="copyright py-4 text-center text-grey">
+    <div class="container">
     <small>
       {% trans 'Desarrollado por' %} - <a class="text-reset fw-bold text-decoration-none" target="_blank"
         href="https://youtu.be/E9g6nc4sUZY?si=Y9viU1kErkLUzFIe">
         Jose David Valencia 
         </a>
-        <div class = "post-text-box text-white">
+    <div class = "post-text-box text-grey">
         <a class= "text-reset fw-bold text-decoration-none" target ="_blank" 
         href="https://vm.tiktok.com/ZMMdVYg25/">
          Juan Esteban Pavas
       </a>
     </div>
-       <div class = "post-text-box text-white">
+    <div class = "post-text-box text-grey">
           <a class ="text-reset fw-bold text-decoration-none" target ="_blank"
           href = "https://vm.tiktok.com/ZMMdVqpD4/">
         Andres Felipe Rua

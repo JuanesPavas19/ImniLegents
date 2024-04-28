@@ -1,5 +1,6 @@
 {% extends 'pages/base.html' %}
-{% block title %} {{ title | translate }} {% endblock %}
+{% load i18n %}
+{% block title %} {{ title }} {% endblock %}
 {% block content %}
 {% comment %} programado por: Andres Rua, Jose Valencia y Juan Pavas {% endcomment %}
 <div class="container">
@@ -12,7 +13,7 @@
                 <ul id="errors" class="alert alert-danger list-unstyled">
                 {% for field, errors in form.errors.items %}
                     {% for error in errors %}
-                        <li>{{ error | translate }}</li>
+                        <li>{{ error }}</li>
                     {% endfor %}
                 {% endfor %}
                 </ul>

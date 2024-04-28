@@ -1,6 +1,8 @@
 {% extends 'pages/base.html' %}
+{% load i18n %}
 {% block title %} {{title}} {% endblock %}
 {% block header_title %} {{subtitle}}
+<hr>
 <a class="nav-link active" href="{%url 'forreview' %}">{% trans 'Crear reviews' %}</a> {% endblock %}
 {% comment %} programado por: Andres Rua, Jose Valencia y Juan Pavas {% endcomment %}
 {% block content %}

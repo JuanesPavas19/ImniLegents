@@ -1,6 +1,7 @@
 {% extends 'pages/base.html' %}
+{% load i18n %}
 {% block title %}
-  {% trans 'Omnilegents - Sign Up' %}
+  {% trans 'Omnilegents - Registrarse' %}
 {% endblock %}
 {% block content %}
 {% comment %} {% trans 'programmed by: Juan Pavas' %} {% endcomment %}
@@ -9,7 +10,7 @@
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="card">
-            <div class="card-header">{% trans 'Registro' %}</div>
+            <div class="card-header">{% trans 'Registrarse' %}</div>
             <div class="card-body">
               {% if form.errors %}
                 <div class="alert alert-danger">
@@ -54,7 +55,7 @@
           </div>
           <div class="text-center mt-3">
             <p>
-              {% trans 'Ya tienes una Cuenta?' %} <a href="{% url 'login' %}">{% trans 'Iniciar Sesión' %}</a>
+              {% trans '¿Ya tienes una Cuenta?' %} <a href="{% url 'login' %}">{% trans 'Iniciar Sesión' %}</a>
             </p>
           </div>
         </div>

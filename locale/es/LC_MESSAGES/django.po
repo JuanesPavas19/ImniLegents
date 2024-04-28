@@ -18,410 +18,396 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\pages\templates\about.html:14
+#: .\pages\templates\about.html:17
 msgid "Esperamos que te guste esta tienda"
-msgstr ""
+msgstr "We hope you enjoy this store"
 
-#: .\pages\templates\about.html:18
+#: .\pages\templates\about.html:21
 msgid "Libros about"
-msgstr ""
+msgstr "Books about"
 
 #: .\pages\templates\cart\index.html:10
 msgid "Libros disponibles"
-msgstr ""
+msgstr "Available books"
 
 #: .\pages\templates\cart\index.html:14 .\pages\templates\cart\index.html:33
 msgid "Id:"
-msgstr ""
+msgstr "ID:"
 
 #: .\pages\templates\cart\index.html:15 .\pages\templates\cart\index.html:34
 msgid "Título:"
-msgstr ""
+msgstr "Title:"
 
 #: .\pages\templates\cart\index.html:16 .\pages\templates\cart\index.html:35
 msgid "Precio:"
-msgstr ""
+msgstr "Price:"
 
 #: .\pages\templates\cart\index.html:19
 msgid "Agregar al carrito"
-msgstr ""
+msgstr "Add to cart"
 
 #: .\pages\templates\cart\index.html:29
 msgid "Libros en carrito"
-msgstr ""
+msgstr "Books in cart"
 
 #: .\pages\templates\cart\index.html:41
 msgid "Eliminar todos los libros del carrito"
-msgstr ""
+msgstr "Remove all books from cart"
 
-#: .\pages\templates\home.html:2
-msgid "Omnilegents"
-msgstr ""
 
 #: .\pages\templates\home.html:8 .\pages\templates\pages\base.html:25
 msgid "Libros"
-msgstr ""
+msgstr "Books"
 
 #: .\pages\templates\libros\create.html:10 .\pages\views.py:116
 #: .\pages\views.py:127
 msgid "Crear Libro"
-msgstr ""
+msgstr "Create Book"
 
 #: .\pages\templates\libros\create.html:23
 msgid "Ingresa el titulo del libro"
-msgstr ""
+msgstr "Enter the title of the book"
 
 #: .\pages\templates\libros\create.html:24
 msgid "Ingresa el autor del libro"
-msgstr ""
+msgstr "Enter the author of the book"
 
 #: .\pages\templates\libros\create.html:25
 msgid "Ingresa el ISBN del libro"
-msgstr ""
+msgstr "Enter the ISBN of the book"
 
 #: .\pages\templates\libros\create.html:26
 msgid "Ingresa el numero de paginas del libro"
-msgstr ""
+msgstr "Enter the number of pages of the book"
 
 #: .\pages\templates\libros\create.html:27
 msgid "Ingresa el editorial del libro"
-msgstr ""
+msgstr "Enter the publisher of the book"
 
 #: .\pages\templates\libros\create.html:28
 msgid "Ingresa la fecha de publicacion del libro"
-msgstr ""
+msgstr "Enter the publication date of the book"
 
 #: .\pages\templates\libros\create.html:29
 msgid "Ingresa el precio del libro"
-msgstr ""
+msgstr "Enter the price of the book"
 
 #: .\pages\templates\libros\create.html:30
 #: .\pages\templates\notas\create.html:27
 #: .\pages\templates\reviews\create.html:35
 msgid "Enviar"
-msgstr ""
+msgstr "Submit"
 
 #: .\pages\templates\libros\index.html:8 .\pages\templates\libros\index.html:11
 msgid "Crear libros"
-msgstr ""
+msgstr "Create books"
 
 #: .\pages\templates\libros\show.html:34
 msgid "Borrar libro"
-msgstr ""
+msgstr "Delete book"
 
 #: .\pages\templates\notas\create.html:10 .\pages\views.py:206
 msgid "Crear Notita"
-msgstr ""
+msgstr "Create Note"
 
 #: .\pages\templates\notas\create.html:23
 msgid "Ingresa el titulo de la nota"
-msgstr ""
+msgstr "Enter the title of the note"
 
 #: .\pages\templates\notas\create.html:24
 msgid "Ingresa el contenido de la nota"
-msgstr ""
+msgstr "Enter the content of the note"
 
 #: .\pages\templates\notas\create.html:25
 msgid "Ingresa la fecha de creacion de la nota"
-msgstr ""
+msgstr "Enter the creation date of the note"
 
 #: .\pages\templates\notas\create.html:26
 msgid "Ingresa la fecha de modificacion de la nota"
-msgstr ""
+msgstr "Enter the modification date of the note"
 
 #: .\pages\templates\notas\index.html:6
 msgid "Crear notas"
-msgstr ""
+msgstr "Create notes"
 
 #: .\pages\templates\notas\show.html:19
 msgid "Borrar notita"
-msgstr ""
+msgstr "Delete note"
 
 #: .\pages\templates\pages\base.html:11
 msgid "Tienda de libros"
-msgstr ""
+msgstr "Bookstore"
 
 #: .\pages\templates\pages\base.html:17
 msgid "Regresar al inicio"
-msgstr ""
+msgstr "Back to home"
 
 #: .\pages\templates\pages\base.html:24
 msgid "About"
-msgstr ""
+msgstr "About"
 
 #: .\pages\templates\pages\base.html:26 .\pages\views.py:156
 msgid "Mis notas"
-msgstr ""
+msgstr "My notes"
 
 #: .\pages\templates\pages\base.html:27
 msgid "Mis reviews"
-msgstr ""
+msgstr "My reviews"
 
 #: .\pages\templates\pages\base.html:28
 msgid "Carrito"
-msgstr ""
+msgstr "Cart"
 
 #: .\pages\templates\pages\base.html:31
 msgid "Hola Admin"
-msgstr ""
+msgstr "Hello Admin"
 
 #: .\pages\templates\pages\base.html:33
-msgid "Logout"
-msgstr ""
-
-#: .\pages\templates\pages\base.html:36
-msgid "Login"
-msgstr ""
-
-#: .\pages\templates\pages\base.html:37
-msgid "Sign Up"
-msgstr ""
+msgid "Cerrar Sesión"
+msgstr "Logout"
 
 #: .\pages\templates\pages\base.html:46
 msgid "Omnilegents - Tienda de libros"
-msgstr ""
+msgstr "Omnilegents - Bookstore"
+
+#: .\pages\templates\about.html:5
+msgid "Omnilegents - Acerca De"
+msgstr "Omnilegents - About"
 
 #: .\pages\templates\pages\base.html:63
 msgid "Desarrollado por"
-msgstr ""
+msgstr "Developed by"
 
 #: .\pages\templates\registration\SignUp.html:3
-msgid "Omnilegents - Sign Up"
-msgstr ""
+msgid "Omnilegents - Registrarse"
+msgstr "Omnilegents - Sign Up"
 
-#: .\pages\templates\registration\SignUp.html:13
-msgid "Registro"
-msgstr ""
 
 #: .\pages\templates\registration\SignUp.html:17
 msgid "Por favor corrija los siguientes errores:"
-msgstr ""
+msgstr "Please correct the following errors:"
 
 #: .\pages\templates\registration\SignUp.html:30
 msgid "Nombre de Usuario:"
-msgstr ""
+msgstr "Username:"
 
 #: .\pages\templates\registration\SignUp.html:34
 msgid "Correo:"
-msgstr ""
+msgstr "Email:"
 
 #: .\pages\templates\registration\SignUp.html:38
 msgid "Contraseña:"
-msgstr ""
+msgstr "Password:"
 
 #: .\pages\templates\registration\SignUp.html:42
 msgid "Confirme Contraseña:"
-msgstr ""
+msgstr "Confirm Password:"
 
 #: .\pages\templates\registration\SignUp.html:46
 msgid "Tipo de Usuario:"
-msgstr ""
+msgstr "User Type:"
 
 #: .\pages\templates\registration\SignUp.html:48
 msgid "Administrador"
-msgstr ""
+msgstr "Administrator"
 
 #: .\pages\templates\registration\SignUp.html:49
 msgid "Cliente"
-msgstr ""
+msgstr "Client"
 
-#: .\pages\templates\registration\SignUp.html:52
+#: .\pages\templates\pages\base.html:37
+#: .\pages\templates\registration\login.html:32
+#: .\pages\templates\registration\SignUp.html:13
+#: .\pages\templates\registration\SignUp.html:51
 msgid "Registrarse"
-msgstr ""
+msgstr "Sign Up"
 
 #: .\pages\templates\registration\SignUp.html:58
-msgid "Ya tienes una Cuenta?"
-msgstr ""
-
-#: .\pages\templates\registration\SignUp.html:58
-msgid "Iniciar Sesión"
-msgstr ""
+msgid "¿Ya tienes una Cuenta?"
+msgstr "Already have an Account?"
 
 #: .\pages\templates\registration\login.html:2
-msgid "Omnilegents - Login"
-msgstr ""
+msgid "Omnilegents - Iniciar Sesión"
+msgstr "Omnilegents - Log In"
 
-#: .\pages\templates\registration\login.html:4
-msgid "programmed by: Juan Pavas"
-msgstr ""
-
+#: .\pages\templates\pages\base.html:36
 #: .\pages\templates\registration\login.html:10
-msgid "Inicio de Sesión"
-msgstr ""
+#: .\pages\templates\registration\SignUp.html:57
+msgid "Iniciar Sesión"
+msgstr "Log In"
 
 #: .\pages\templates\registration\login.html:12
 msgid "Ingresa tus Datos"
-msgstr ""
+msgstr "Enter your Data"
 
 #: .\pages\templates\registration\login.html:25
 msgid "Ingrese"
-msgstr ""
+msgstr "Enter"
 
 #: .\pages\templates\registration\login.html:30
 msgid "Ingresar"
-msgstr ""
+msgstr "Sign In"
 
 #: .\pages\templates\registration\login.html:32
 msgid "¿No te has registrado?"
-msgstr ""
-
-#: .\pages\templates\registration\login.html:32
-msgid "Registrarme"
-msgstr ""
+msgstr "Not registered yet?"
 
 #: .\pages\templates\reviews\create.html:10 .\pages\views.py:272
 #: .\pages\views.py:284
 msgid "Crear Review"
-msgstr ""
+msgstr "Create Review"
 
 #: .\pages\templates\reviews\create.html:24
 msgid "Título de la Review:"
-msgstr ""
+msgstr "Review Title:"
 
 #: .\pages\templates\reviews\create.html:25
 msgid "Ingresa el título de la review"
-msgstr ""
+msgstr "Enter the review title"
 
 #: .\pages\templates\reviews\create.html:28
 msgid "Contenido de la Review:"
-msgstr ""
+msgstr "Review Content:"
 
 #: .\pages\templates\reviews\create.html:29
 msgid "Ingresa el contenido de la review"
-msgstr ""
+msgstr "Enter the review content"
 
 #: .\pages\templates\reviews\create.html:32
 msgid "Fecha de Creación de la Review:"
-msgstr ""
+msgstr "Review Creation Date:"
 
 #: .\pages\templates\reviews\index.html:4
 msgid "Crear reviews"
-msgstr ""
+msgstr "Create reviews"
 
 #: .\pages\templates\reviews\show.html:18
 msgid "Borrar review"
-msgstr ""
+msgstr "Delete Review"
 
 #: .\pages\views.py:46
 msgid ""
 "En esta tienda de libros, queremos que comprendas la importancia de leer y "
 "de tener hábitos de lectura"
 msgstr ""
+"In this book store, we want you to understand the importance of reading and "
+"having reading habits"
 
 #: .\pages\views.py:47
 msgid "¿Quiénes somos?"
-msgstr ""
+msgstr "Who are we?"
 
 #: .\pages\views.py:48
 msgid ""
 "Somos un grupo de estudiantes preocupados por la falta de lectura que hay en "
 "la ciudad"
 msgstr ""
+"We are a group of students concerned about the lack of reading in the city"
 
 #: .\pages\views.py:58
 msgid "Libros - Tienda"
-msgstr ""
+msgstr "Books - Store"
 
 #: .\pages\views.py:59
 msgid "Listado de libros"
-msgstr ""
+msgstr "List of books"
 
 #: .\pages\views.py:71
 msgid "El id del libro debe ser mayor a 1"
-msgstr ""
+msgstr "The book id must be greater than 1"
 
 #: .\pages\views.py:79
-msgid "{} - Tienda de Libros"
-msgstr ""
+msgid "Tienda de Libros - {}"
+msgstr "Book Store - {}"
 
 #: .\pages\views.py:80
-msgid "{} - Informacion del libro"
-msgstr ""
+msgid "Informacion del libro - {}"
+msgstr "Book Information - {}"
 
 #: .\pages\views.py:94 .\pages\views.py:140
 msgid "Libros - Tienda en línea"
-msgstr ""
+msgstr "Books - Online Store"
 
 #: .\pages\views.py:95 .\pages\views.py:141
 msgid "Lista de Libros"
-msgstr ""
+msgstr "List of Books"
 
 #: .\pages\views.py:107
 msgid "El Precio debe ser mayor a Cero."
-msgstr ""
+msgstr "The price must be greater than zero."
 
 #: .\pages\views.py:157
 msgid "Notas"
-msgstr ""
+msgstr "Notes"
 
 #: .\pages\views.py:169
 msgid "El id de la nota debe ser mayor a 1"
-msgstr ""
+msgstr "The note id must be greater than 1"
 
 #: .\pages\views.py:176
-msgid " - Mis notas"
-msgstr ""
+msgid "Mis notas - "
+msgstr "My notes - "
 
 #: .\pages\views.py:177
-msgid " - Notas"
-msgstr ""
+msgid "Notas - "
+msgstr "Notes - "
 
 #: .\pages\views.py:194
 msgid "Crear Notas"
-msgstr ""
+msgstr "Create Notes"
 
 #: .\pages\views.py:217
-msgid "nota - Tienda en línea"
-msgstr ""
+msgid "Nota - Tienda en línea"
+msgstr "Note - Online Store"
 
 #: .\pages\views.py:218
 msgid "Lista de notitas"
-msgstr ""
+msgstr "List of notes"
 
 #: .\pages\views.py:233
 msgid "Mis Reviews"
-msgstr ""
+msgstr "My Reviews"
 
 #: .\pages\views.py:234
 msgid "Reviews"
-msgstr ""
+msgstr "Reviews"
 
 #: .\pages\views.py:246
 msgid "El id de la review debe ser mayor a 1"
-msgstr ""
+msgstr "The review id must be greater than 1"
 
 #: .\pages\views.py:253
-msgid " - Mis reviews"
-msgstr ""
+msgid "Mis reviews - "
+msgstr "My reviews - "
 
 #: .\pages\views.py:254
-msgid " - Reviews"
-msgstr ""
+msgid "Reviews - "
+msgstr "Reviews - "
 
 #: .\pages\views.py:295
 msgid "Review - Tienda en línea"
-msgstr ""
+msgstr "Review - Online Store"
 
 #: .\pages\views.py:296
 msgid "Lista de Reviews"
-msgstr ""
+msgstr "List of Reviews"
 
 #: .\pages\views.py:319
-msgid "Cart - Tienda en línea"
-msgstr ""
+msgid "Carrito - Tienda en línea"
+msgstr "Cart - Online Store"
 
 #: .\pages\views.py:320
 msgid "Carrito de Compras"
-msgstr ""
+msgstr "Shopping Cart"
 
 #: .\pages\views.py:351
 msgid "Esta vista solo es accesible para administradores."
-msgstr ""
+msgstr "This view is only accessible for administrators."
 
 #: .\taller_project\settings.py:21
 msgid "English"
-msgstr ""
+msgstr "Inglés"
 
 #: .\taller_project\settings.py:22
 msgid "Spanish"
-msgstr ""
+msgstr "Español"

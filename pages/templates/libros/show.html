@@ -1,6 +1,7 @@
 {% extends 'pages/base.html' %}
-{% block title %} {{ title | translate }} {% endblock %}
-{% block header_title %} {{ subtitle | translate }} {% endblock %}
+{% load i18n %}
+{% block title %} {{ title }} {% endblock %}
+{% block header_title %} {{ subtitle }} {% endblock %}
 {% comment %} programado por: Andres Rua, Jose Valencia y Juan Pavas {% endcomment %}
 {% block content %}
 <div class="card mb-3">
@@ -10,13 +11,13 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">{{ libro.Titulo | translate }}</h5>
+        <h5 class="card-title">{{ libro.Titulo }}</h5>
         {% if libro.precio > 100000 %}
           <p class="card-text" style="color: red;">{{ libro.precio }}</p>
         {% else %}
           <p class="card-text">{{ libro.precio }}</p>
         {% endif %}
-        <p class="card-text text-black">{{ libro.Autor | translate }}</p>
+        <p class="card-text text-black">{{ libro.Autor }}</p>
         <div class="card-text text-black">{{ libro.ISBN }}</div>
         {% comment %} <div class="card-text text-black">{{ libro.Numero_paginas }}</div> {% endcomment %}
         {% if libro.Numero_paginas > 600 %}
@@ -29,7 +30,8 @@
           <div class="card-text text-black">{{ libro.Fecha_publicacion }}</div>
           <div class="card-text text-black">{{ libro.Editorial }}</div>
         </p>
-        <a class="nav-link active" href="{% url 'libro_delete' id=libro.id %}">{% trans "Borrar libro" %}</a>
+        {% comment %} quitar style y hacer  {% endcomment %}
+        <a class="nav-link active" style="color: red;" href="{% url 'libro_delete' id=libro.id %}">{% trans "Borrar libro" %}</a>
       </div>
     </div>
   </div>

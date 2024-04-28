@@ -1,6 +1,7 @@
 {% extends 'pages/base.html' %}
-{% block title %} {{ title | translate }} {% endblock %}
-{% block header_title %} {{ subtitle | translate }} {% endblock %}
+{% load i18n %}
+{% block title %} {{ title }} {% endblock %}
+{% block header_title %} {{ subtitle }} {% endblock %}
 {% comment %} programado por: Andres Rua {% endcomment %}
 {% block content %}
 <div class="container">

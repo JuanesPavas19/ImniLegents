@@ -1,4 +1,5 @@
 {% extends 'pages/base.html' %}
+{% load i18n %}
 {% block title %} {{title}} {% endblock %}
 {% block header_title %} {{subtitle}} {% endblock %}
 {% comment %} programado por: Andres Rua, Jose Valencia y Juan Pavas {% endcomment %}
@@ -14,7 +15,7 @@
            {{review.Titulo_Review}}
         </h5>
         <p class="card-text">{{review.Titulo_Review}}</p>        
-        <a class="nav-link active" href="{% url 'review_delete' id=review.id %}">{% trans 'Borrar review' %}</a>
+        <a class="nav-link active" style="color: red;" href="{% url 'review_delete' id=review.id %}">{% trans 'Borrar review' %}</a>
         </div>
       </div>
     </div>

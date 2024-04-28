@@ -1,10 +1,13 @@
 {% extends 'pages/base.html' %}
+{% load i18n %}
+{% comment %} {% block title %} Omnilegents {% endblock %} {% endcomment %}
 {% block title %} {% trans "Omnilegents" %} {% endblock %}
 {% block content %}
 {% comment %} programado por: Andres Rua{% endcomment %}
 <section>
   <div class="post-text-box text-black">
-    <img src="https://ichef.bbci.co.uk/images/ic/1200x675/p0gl91h1.jpg" alt="{% trans "Libros" %}" class="img-fluid" style="width: 400px;">
+    <img src="https://ichef.bbci.co.uk/images/ic/1200x675/p0gl91h1.jpg" 
+    alt="{% trans 'Libros' %}" class="img-fluid" style="width: 400px;">
   </div>
 </section>
 {% endblock %}

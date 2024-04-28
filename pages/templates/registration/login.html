@@ -1,13 +1,14 @@
 {% extends 'pages/base.html' %}
-{% block title %}{% trans 'Omnilegents - Login' %}{% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Omnilegents - Iniciar Sesión' %}{% endblock %}
 {% block content %}
-<!-- {% trans "programmed by: Juan Pavas" %} -->
+{% comment %} programmed by: Juan Pavas {% endcomment %}
 <section>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">{% trans 'Inicio de Sesión' %}</div>
+                    <div class="card-header">{% trans 'Iniciar Sesión' %}</div>
                     <div class="card-body">
                         <h4 class="card-title">{% trans 'Ingresa tus Datos' %}</h4><hr>
                         {% if messages %}
@@ -16,6 +17,7 @@
                             {% endfor %}
                         {% endif %}
                         <form action="" method="post">
+                            {% comment %} Revisar traducción de formulario predeterminado {% endcomment %}
                             {% csrf_token %}
                             {% for campo in form %}
                             <div class="mb-3">
@@ -29,7 +31,7 @@
                             {% endfor %}
                             <input class="btn btn-primary" type="submit" value="{% trans 'Ingresar' %}">
                                 <hr>
-                                <p style="margin-bottom: 4px;">{% trans '¿No te has registrado?' %} <a href="{% url 'signup' %}">{% trans 'Registrarme' %}</a></p>
+                                <p style="margin-bottom: 4px;">{% trans '¿No te has registrado?' %} <a href="{% url 'signup' %}">{% trans 'Registrarse' %}</a></p>
                         </form>
                     </div>
                 </div>

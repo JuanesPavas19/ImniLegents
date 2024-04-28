@@ -76,8 +76,10 @@ class LibroShowView(View):
         viewData = {
             #"title": libro.Titulo + _(" - Tienda de Libros"),
             #"subtitle": libro.Titulo + _(" - Informacion del libro"),
-            "title": _("{} - Tienda de Libros").format(libro.Titulo),
-            "subtitle": _("{} - Informacion del libro").format(libro.Titulo),
+            # "title": _("{} - Tienda de Libros").format(libro.Titulo),
+            # "subtitle": _("{} - Informacion del libro").format(libro.Titulo),
+            "title": _("Tienda de Libros - {}").format(libro.Titulo),
+            "subtitle": _("Informacion del libro - {}").format(libro.Titulo),
             "libro": libro,
         }
 
@@ -173,8 +175,8 @@ class NotaShowView(View):
         
         viewData = {}
         nota = get_object_or_404(Nota, pk=nota_id)
-        viewData["title"] = nota.titulo_nota + _(" - Mis notas")
-        viewData["subtitle"] = nota.titulo_nota + _(" - Notas")
+        viewData["title"] = _("Mis notas - ") + nota.titulo_nota
+        viewData["subtitle"] = _("Notas - ") + nota.titulo_nota
         viewData["nota"] = nota
 
         return render(request, self.template_name, viewData)
@@ -214,8 +216,9 @@ class NotaListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = _('nota - Tienda en línea')
+        context['title'] = _('Nota - Tienda en línea')
         context['subtitle'] = _('Lista de notitas')
+        # Revisar esta clase !!!
         return context
     
 class NotaDeleteView(View):
@@ -250,8 +253,8 @@ class ReviewShowView(View):
         
         viewData = {}
         review = get_object_or_404(Review, pk=review_id)
-        viewData["title"] = review.Titulo_Review + _(" - Mis reviews")
-        viewData["subtitle"] = review.Titulo_Review + _(" - Reviews")
+        viewData["title"] = _("Mis reviews - ") + review.Titulo_Review
+        viewData["subtitle"] = _("Reviews - ") + review.Titulo_Review
         viewData["review"] = review
 
         return render (request, self.template_name, viewData)
@@ -316,7 +319,7 @@ class CartView(View):
 
         # Preparar los datos para la vista
         view_data = {
-            'title': _('Cart - Tienda en línea'),
+            'title': _('Carrito - Tienda en línea'),
             'subtitle': _('Carrito de Compras'),
             'cart_libros': cart_libros,
             'available_libros': available_libros,

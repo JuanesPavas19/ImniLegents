@@ -1,6 +1,7 @@
 {% extends 'pages/base.html' %}
-{% block title %} {{ title | translate }} {% endblock %}
-{% block header_title %} {{ subtitle | translate }} {% endblock %}
+{% load i18n %}
+{% block title %} {{ title }} {% endblock %}
+{% block header_title %} {{ subtitle }} {% endblock %}
 {% comment %} programado por: Andres Rua, Jose Valencia y Juan Pavas {% endcomment %}
 {% block content %}
 <div class="card mb-3">
@@ -11,11 +12,11 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">
-           {{ nota.titulo_nota | translate }}
+           {{ nota.titulo_nota }}
         </h5>
-        <p class="card-text">{{ nota.contenido_nota | translate }}</p>  
+        <p class="card-text">{{ nota.contenido_nota }}</p>  
         
-        <a class="nav-link active" href="{% url 'nota_delete' id=nota.id %}">{% trans "Borrar notita" %}</a>
+        <a class="nav-link active" style="color: red;" href="{% url 'nota_delete' id=nota.id %}">{% trans "Borrar notita" %}</a>
 
         </div>
       </div>
