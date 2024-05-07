@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokémon Data</title>
+</head>
+<body>
+    <h1>Pokémon Data</h1>
+    <div>
+        {% for pokemon in pokemon_list %}
+            <div>
+                <h3>{{ pokemon.name }}</h3>
+                <p>Abilities: {{ pokemon.abilities|join:", " }}</p>
+                <p>Types: {{ pokemon.types|join:", " }}</p>
+                <p>Weight: {{ pokemon.weight }}</p>
+                <p>Height: {{ pokemon.height }}</p>
+                <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}">
+            </div>
+        {% endfor %}
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

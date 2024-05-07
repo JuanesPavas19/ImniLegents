@@ -31,5 +31,5 @@ urlpatterns = [
         path('cart/removeAll', CartRemoveAllView.as_view(), name='cart_removeAll'),
 
         path('libros/json/', views.lista_libros, name='lista_libros_json'),
-
+        path('apis/', views.get_pokemon_data, name='lista_pokemon'),
 ]
