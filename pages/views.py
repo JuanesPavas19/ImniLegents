@@ -405,3 +405,29 @@ def lista_libros (request):
             'enlace': request.build_absolute_uri(reverse('detalle_libro, args =[libro.pk]'))
         })
         return JsonResponse (data, safe=False)
+
+
+
+def get_pokemon_data(request):
+    url = 'https://pokeapi.co/api/v2/pokemon/'
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        pokemon_list = []
+        for pokemon in data.get('results', []):
+            pokemon_url = pokemon.get('url')
+            pokemon_response = requests.get(pokemon_url)
+            if pokemon_response.status_code == 200:
+                pokemon_data = pokemon_response.json()
+                pokemon_info = {
+                    'name': pokemon_data.get('name'),
+                    'abilities': [ability.get('ability').get('name') for ability in pokemon_data.get('abilities', [])],
+                    'types': [type.get('type').get('name') for type in pokemon_data.get('types', [])],
+                    'weight': pokemon_data.get('weight'),
+                    'height': pokemon_data.get('height'),
+                    'image': pokemon_data.get('sprites', {}).get('front_default'),
+                }
+                pokemon_list.append(pokemon_info)
+        return JsonResponse(pokemon_list, safe=False)
+    else:
+        return JsonResponse({'error': 'Failed to fetch data'}, status=500)

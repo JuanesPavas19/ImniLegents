@@ -29,5 +29,5 @@ urlpatterns = [
         path('cart/add/<str:libro_id>', CartView.as_view(), name='cart_add'),
         path('cart/removeAll', CartRemoveAllView.as_view(), name='cart_removeAll'),
 
-
+        path('api/pokemon/', views.get_pokemon_data, name='lista_pokemon'),
 ]
