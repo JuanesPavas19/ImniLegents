@@ -1,7 +1,8 @@
 #programado por: Andres Rua
 from django.urls import path, include
 from .views import * # HomePageView, AboutPageView,LibroIndexView, LibroShowView, LibroCreateView,  LibroDeleteView, NotaIndexView, NotaShowView, NotaCreateView, NotaDeleteView
-	
+from . import views	
+
 	
 urlpatterns = [
 	    path("", HomePageView.as_view(), name='home'),
@@ -29,5 +30,6 @@ urlpatterns = [
         path('cart/add/<str:libro_id>', CartView.as_view(), name='cart_add'),
         path('cart/removeAll', CartRemoveAllView.as_view(), name='cart_removeAll'),
 
+        path('libros/json/', views.lista_libros, name='lista_libros_json'),
 
 ]

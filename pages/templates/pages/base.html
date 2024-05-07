@@ -26,6 +26,8 @@
           <a class="nav-link active" href="{%url 'misnotas' %}">{% trans 'Mis notas' %}</a>
           <a class="nav-link active" href="{%url 'misreviews' %}">{% trans 'Mis reviews' %}</a>
           <a class="nav-link active" href="{%url 'cart_index' %}">{% trans 'Carrito' %}</a>
+          <a class="nav-link active" href="{%url 'lista_libros_json' %}">{% trans 'Libros JSN' %}</a>
+          <a class="nav-link active" href="{%url 'lista_pokemon' %}">{% trans 'Puchamones' %}</a>
           {% if user.is_authenticated %}
               {% if user.tipo_usuario == 'Admin' %}
                   <p style="margin: 0%;" class="nav-link active" >{% trans 'Hola Admin' %}</p> 
@@ -61,18 +63,18 @@
     <div class="container">
     <small>
       {% trans 'Desarrollado por' %} - <a class="text-reset fw-bold text-decoration-none" target="_blank"
-        href="https://youtu.be/E9g6nc4sUZY?si=Y9viU1kErkLUzFIe">
+        href="https://www.youtube.com/watch?v=x7Z86jQjG30">
         Jose David Valencia 
         </a>
     <div class = "post-text-box text-grey">
         <a class= "text-reset fw-bold text-decoration-none" target ="_blank" 
-        href="https://vm.tiktok.com/ZMMdVYg25/">
+        href="https://www.youtube.com/watch?v=poa_QBvtIBA">
          Juan Esteban Pavas
       </a>
     </div>
     <div class = "post-text-box text-grey">
           <a class ="text-reset fw-bold text-decoration-none" target ="_blank"
-          href = "https://vm.tiktok.com/ZMMdVqpD4/">
+          href = "https://www.instagram.com/reel/C574Y4Io5aM/?igsh=MW5zMHRkMzBxaW44Mw==">
         Andres Felipe Rua
       </a>
     </div>

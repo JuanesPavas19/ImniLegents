@@ -11,7 +11,7 @@ from .models import Libro, Nota, Review
 from django .contrib import messages
 from django.http import JsonResponse
 from django.urls import reverse
-
+import requests
 
 #verificación de admin
 from django.contrib.auth.decorators import user_passes_test
@@ -402,6 +402,7 @@ def lista_libros (request):
             'editorial': libro.Editorial,
             'fecha_publicacion': libro.Fecha_publicacion.strftime('%Y-%m-%d'),
             'precio': libro.precio,
-            'enlace': request.build_absolute_uri(reverse('detalle_libro, args =[libro.pk]'))
-        })
-        return JsonResponse (data, safe=False)
+
+        })    
+    return JsonResponse (data, safe=False)
+
