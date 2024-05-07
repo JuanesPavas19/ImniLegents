@@ -9,6 +9,8 @@ from django import forms
 from django.core.exceptions import ValidationError
 from .models import Libro, Nota, Review
 from django .contrib import messages
+from django.http import JsonResponse
+from django.urls import reverse
 
 
 #verificación de admin
@@ -387,3 +389,19 @@ class SignupView(View):
 #             else:
 #                 messages.error(request, 'Usuario o contraseña incorrectos.')
 #         return render(request, 'registration/login.html', {'form': form})
+
+def lista_libros (request):
+    libros = Libro.objects.all()
+    data = []
+    for libro in libros:
+        data.append({
+            'titulo': libro.Titulo,
+            'autor': libro.Autor,
+            'ISBN': libro.ISBN,
+            'numero_paginas': libro.Numero_paginas,
+            'editorial': libro.Editorial,
+            'fecha_publicacion': libro.Fecha_publicacion.strftime('%Y-%m-%d'),
+            'precio': libro.precio,
+            'enlace': request.build_absolute_uri(reverse('detalle_libro, args =[libro.pk]'))
+        })
+        return JsonResponse (data, safe=False)
