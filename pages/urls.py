@@ -29,5 +29,11 @@ urlpatterns = [
         path('cart/add/<str:libro_id>', CartView.as_view(), name='cart_add'),
         path('cart/removeAll', CartRemoveAllView.as_view(), name='cart_removeAll'),
 
-        path('api/pokemon/', views.get_pokemon_data, name='lista_pokemon'),
+        path('finalizar-compra/', views.FinalizarCompraView.as_view(), name='finalizar_compra'),
+        path('download-pdf/', views.download_pdf, name='download_pdf'),
+
+        path('libros/json/', views.lista_libros, name='lista_libros_json'),
+        path('apis/', views.get_pokemon_data, name='lista_pokemon'),
+        path('check/', views.mostrar_cheque, name = 'check'),
+]
 ]
