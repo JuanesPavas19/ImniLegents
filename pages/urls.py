@@ -32,4 +32,5 @@ urlpatterns = [
 
         path('libros/json/', views.lista_libros, name='lista_libros_json'),
         path('apis/', views.get_pokemon_data, name='lista_pokemon'),
+        path('check/', views.mostrar_cheque, name = 'check'),
 ]

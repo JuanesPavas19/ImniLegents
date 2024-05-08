@@ -11,6 +11,8 @@ from .models import Libro, Nota, Review
 from django .contrib import messages
 from django.http import JsonResponse
 from django.urls import reverse
+from reportlab.pdfgen import canvas
+from abc import ABC, abstractmethod
 import requests
 
 #verificación de admin
@@ -433,3 +435,77 @@ def get_pokemon_data(request):
         return render(request, 'apis/index.html', context)
     else:
         return render(request, 'apis/index.html', {'error': 'Failed to fetch data'})
+    
+
+
+class Payment(ABC):
+    @abstractmethod
+    def check(self, data):
+        pass
+
+class PDF (ABC):
+    @abstractmethod
+    def pdf (self, data):
+        pass
+
+
+class checkPayment(Payment):
+    def check (self, data):
+        Libro_Titulo = data.get('Libro_Titulo')
+        Libro = Libro.objects.get(Titulo=Libro_Titulo)
+        Titulo = Libro.Titulo
+        ISBN = Libro.ISBN
+        Precio = Libro.precio
+        Numero_paginas = Libro.Numero_paginas
+        check_text = f"Cheque para: {Titulo}\nISBN:  {(ISBN)} \nPrecio + {(Precio)} \nNumero de paginas + {(Numero_paginas)}"
+
+        return check_text
+    
+class PDFGenerator:
+    def pdf(self, data):
+        Titulo = data.get('Titulo')
+        ISBN = data.get('ISBN')
+        Precio = data.get('precio')
+        Numero_paginas = data.get('Numero_paginas')
+        pdf_filename = f"{Titulo}.pdf"
+        c = canvas.Canvas (pdf_filename)
+        text = f"Cheque para: {Titulo}\nISBN:  {(ISBN)} \nPrecio + {(Precio)} \nNumero de paginas + {(Numero_paginas)}"
+        c.drawString (100,800,text)
+        c.save()
+
+        return pdf_filename
+
+def mostrar_cheque(request, Libro_Titulo=None):
+    check_service = checkPayment()
+    pdf_service = PDFGenerator()
+
+    libro = None
+    try:
+        libro = Libro.objects.get(Titulo=Libro_Titulo)
+    except Libro.DoesNotExist:
+        pass
+
+    if libro:
+        # Generar el texto para el cheque
+        check_text = check_service.check({
+            'Libro_Titulo': Libro_Titulo
+        })
+
+        # Generar el PDF
+        pdf_filename = pdf_service.pdf({
+            'Titulo': libro.Titulo,
+            'ISBN': libro.ISBN,
+            'precio': libro.precio,
+            'Numero_paginas': libro.Numero_paginas
+        })
+
+        context = {
+            'check_text': check_text,
+            'pdf_filename': pdf_filename,
+        }
+    else:
+        context = {
+            'error': f'El libro "{Libro_Titulo}" no fue encontrado.'
+        }
+
+    return render(request, 'check/index.html', context)
