@@ -41,6 +41,14 @@
         <button type="submit">{% trans "Eliminar todos los libros del carrito" %}</button>
       </form>
     </div>
+    <div>
+      <form method="post" action="{% url 'finalizar_compra' %}">
+        {% csrf_token %}
+        <button type="submit">{% trans "Finalizar compra" %}</button>
+        
+      </form> 
+    </div>   
+    </div>
   </div>
 </div>
 {% endblock %}

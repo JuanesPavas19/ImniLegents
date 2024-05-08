@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cheque</title>
+    <title>Cheque generado</title>
 </head>
 <body>
     <h1>Cheque generado</h1>
     <p>{{ check_text }}</p>
-    <a href="{{ pdf_filename }}" download>Descargar PDF</a>
+    <a href="{% url 'download_pdf' %}?pdf_filename={{ pdf_filename }}">Descargar PDF</a>
 </body>
 </html>
+
+

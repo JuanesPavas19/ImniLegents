@@ -28,7 +28,6 @@
           <a class="nav-link active" href="{%url 'cart_index' %}">{% trans 'Carrito' %}</a>
           <a class="nav-link active" href="{%url 'lista_libros_json' %}">{% trans 'Libros JSN' %}</a>
           <a class="nav-link active" href="{%url 'lista_pokemon' %}">{% trans 'Puchamones' %}</a>
-          <a class="nav-link active" href="{%url 'check' %}">{% trans 'Facturacion' %}</a>
           {% if user.is_authenticated %}
               {% if user.tipo_usuario == 'Admin' %}
                   <p style="margin: 0%;" class="nav-link active" >{% trans 'Hola Admin' %}</p> 

@@ -3,15 +3,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView, ListView
 from django.views import View
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseNotFound
 from django.urls import reverse
 from django import forms
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from .models import Libro, Nota, Review
 from django .contrib import messages
 from django.http import JsonResponse
 from django.urls import reverse
 from reportlab.pdfgen import canvas
+from django.conf import settings
 from abc import ABC, abstractmethod
 import requests
 
@@ -29,8 +30,10 @@ from .forms import LoginForm
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
-# Create your views here.
-#hola munod como estas
+from django.http import FileResponse
+from django.conf import settings
+import os
+from django.template.loader import get_template
 
 
 #HOME PAGE
@@ -346,7 +349,117 @@ class CartRemoveAllView(View):
             del request.session['cart_libro_ids']
 
         return redirect('cart_index')
+
+class Payment(ABC):
+    @abstractmethod
+    def check(self, data):
+        pass
+
+class PDF (ABC):
+    @abstractmethod
+    def pdf (self, data):
+        pass
+
+
+class checkPayment(Payment):
+    def check(self, data):
+        Libro_Titulo = data.get('Libro_Titulo')
+        try:
+            libro = Libro.objects.get(Titulo=Libro_Titulo)
+            Titulo = libro.Titulo
+            ISBN = libro.ISBN
+            Precio = libro.precio
+            Numero_paginas = libro.Numero_paginas
+            check_text = f"Cheque para: {Titulo}\nISBN:  {(ISBN)} \nPrecio + {(Precio)} \nNumero de paginas + {(Numero_paginas)}"
+            return check_text
+        except ObjectDoesNotExist:
+            return f"El libro con el título '{Libro_Titulo}' no fue encontrado."
     
+class PDFGenerator:
+    def pdf(self, data):
+
+        pdf_filename="cart_summary.pdf"
+        c = canvas.Canvas(pdf_filename) 
+
+        y_position = 800
+        for libro in data ['libros']:
+
+            Titulo = libro.Titulo
+            ISBN = libro.ISBN
+            Precio = libro.precio
+            Numero_paginas = libro.Numero_paginas
+            texto = f"Libro: {Titulo}\nISBN: {ISBN}\nPrecio: {Precio}\nNúmero de páginas: {Numero_paginas}"
+            c.drawString(100, y_position, texto)
+            y_position -= 40
+        
+        c.save()
+        return pdf_filename
+
+def mostrar_cheque(request, Libro_Titulo=None):
+    check_service = checkPayment()
+    pdf_service = PDFGenerator()
+
+    libro = None
+    try:
+        libro = Libro.objects.get(Titulo=Libro_Titulo)
+    except Libro.DoesNotExist:
+        pass
+
+    if libro:
+
+        check_text = check_service.check({
+            'Libro_Titulo': Libro_Titulo
+        })
+
+
+        pdf_filename = pdf_service.pdf({
+            'Titulo': libro.Titulo,
+            'ISBN': libro.ISBN,
+            'precio': libro.precio,
+            'Numero_paginas': libro.Numero_paginas
+        })
+
+        context = {
+            'check_text': check_text,
+            'pdf_filename': pdf_filename,
+        }
+    else:
+        context = {
+            'error': f'El libro "{Libro_Titulo}" no fue encontrado.'
+        }
+
+    return render(request, 'check/index.html', context)
+
+def download_pdf(request):
+    pdf_filename = request.GET.get('pdf_filename', '')
+    pdf_path = os.path.join(settings.MEDIA_ROOT, pdf_filename)
+    if os.path.exists(pdf_path):
+        with open(pdf_path, 'rb') as pdf_file:
+            response = HttpResponse(pdf_file.read(), content_type='application/pdf')
+            response['Content-Disposition'] = f'attachment; filename="{pdf_filename}"'
+            return response
+    else:
+        return HttpResponseNotFound('El archivo PDF no fue encontrado.')
+    
+class FinalizarCompraView(View):
+    def post(self, request):
+        cart_libro_ids = request.session.get('cart_libro_ids', [])
+        cart_libros = Libro.objects.filter(id__in=cart_libro_ids)
+        payment_service = checkPayment()
+        pdf_service = PDFGenerator()
+        data = {
+            'libros': cart_libros
+        }
+
+        check_text = payment_service.check(data)
+        pdf_filename = pdf_service.pdf(data)
+        request.session['cart_libro_ids'] = []
+
+
+
+        return render(request,'check/index.html', {'pdf_filename':pdf_filename})
+
+
     
 
 # Verificación de administrador
@@ -438,74 +551,3 @@ def get_pokemon_data(request):
     
 
 
-class Payment(ABC):
-    @abstractmethod
-    def check(self, data):
-        pass
-
-class PDF (ABC):
-    @abstractmethod
-    def pdf (self, data):
-        pass
-
-
-class checkPayment(Payment):
-    def check (self, data):
-        Libro_Titulo = data.get('Libro_Titulo')
-        Libro = Libro.objects.get(Titulo=Libro_Titulo)
-        Titulo = Libro.Titulo
-        ISBN = Libro.ISBN
-        Precio = Libro.precio
-        Numero_paginas = Libro.Numero_paginas
-        check_text = f"Cheque para: {Titulo}\nISBN:  {(ISBN)} \nPrecio + {(Precio)} \nNumero de paginas + {(Numero_paginas)}"
-
-        return check_text
-    
-class PDFGenerator:
-    def pdf(self, data):
-        Titulo = data.get('Titulo')
-        ISBN = data.get('ISBN')
-        Precio = data.get('precio')
-        Numero_paginas = data.get('Numero_paginas')
-        pdf_filename = f"{Titulo}.pdf"
-        c = canvas.Canvas (pdf_filename)
-        text = f"Cheque para: {Titulo}\nISBN:  {(ISBN)} \nPrecio + {(Precio)} \nNumero de paginas + {(Numero_paginas)}"
-        c.drawString (100,800,text)
-        c.save()
-
-        return pdf_filename
-
-def mostrar_cheque(request, Libro_Titulo=None):
-    check_service = checkPayment()
-    pdf_service = PDFGenerator()
-
-    libro = None
-    try:
-        libro = Libro.objects.get(Titulo=Libro_Titulo)
-    except Libro.DoesNotExist:
-        pass
-
-    if libro:
-        # Generar el texto para el cheque
-        check_text = check_service.check({
-            'Libro_Titulo': Libro_Titulo
-        })
-
-        # Generar el PDF
-        pdf_filename = pdf_service.pdf({
-            'Titulo': libro.Titulo,
-            'ISBN': libro.ISBN,
-            'precio': libro.precio,
-            'Numero_paginas': libro.Numero_paginas
-        })
-
-        context = {
-            'check_text': check_text,
-            'pdf_filename': pdf_filename,
-        }
-    else:
-        context = {
-            'error': f'El libro "{Libro_Titulo}" no fue encontrado.'
-        }
-
-    return render(request, 'check/index.html', context)
