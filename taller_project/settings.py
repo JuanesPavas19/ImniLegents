@@ -52,6 +52,11 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig', 
 ]
 
+STATICFILES_DIRS = [
+    BASE_DIR / "pages/static",
+]
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
