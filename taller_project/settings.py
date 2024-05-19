@@ -35,9 +35,6 @@ DEBUG = True
 #prueba de instancia
 ALLOWED_HOSTS = ['35.238.137.226']
 
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
-]
 
 
 # Application definition
