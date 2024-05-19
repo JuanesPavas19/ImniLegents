@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-uj%eaih9eat1w$(o+h+^9gm*j6rp5misc_f%onutsk84)sw)*j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['34.171.136.14']
 
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
@@ -96,6 +96,17 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'djangoproject',
+#         'USER': 'nram94',
+#         'PASSWORD': '123456789',
+#         'HOST': '104.154.102.101',
+#         'PORT': '3306'
+#     }
+# }
 
 
 # Password validation
