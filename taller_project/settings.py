@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-uj%eaih9eat1w$(o+h+^9gm*j6rp5misc_f%onutsk84)sw)*j
 DEBUG = True
 
 #prueba de instancia
-ALLOWED_HOSTS = ['34.171.136.14']
+ALLOWED_HOSTS = ['35.238.137.226']
 
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
@@ -50,10 +50,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages.apps.PagesConfig', 
-]
-
-STATICFILES_DIRS = [
-    BASE_DIR / "pages/static",
 ]
 
 
