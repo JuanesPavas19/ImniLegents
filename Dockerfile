@@ -1,24 +1,22 @@
-# Usa una imagen base oficial de Python
+# Use an official Python runtime as a parent image
 FROM python:3.9-slim
 
-# Configura el directorio de trabajo en el contenedor
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set the working directory in the container
 WORKDIR /app
 
-# Instala las dependencias del sistema
-RUN apt-get update && apt-get install -y \
-    && apt-get clean
-
-# Copia el archivo de requerimientos
+# Install dependencies
 COPY requirements.txt .
-
-# Instala las dependencias de Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copia el contenido del proyecto
-COPY . .
+# Install reportlab
+RUN pip install reportlab
 
-# Expone el puerto en el que la aplicación correrá
-EXPOSE 8000
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-# Ejecuta la aplicación
+# Specify the command to run on container start
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
