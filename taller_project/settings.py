@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-uj%eaih9eat1w$(o+h+^9gm*j6rp5misc_f%onutsk84)sw)*j
 DEBUG = True
 
 #prueba de instancia
-ALLOWED_HOSTS = ['35.238.137.226']
+ALLOWED_HOSTS = ['35.232.59.58']
 
 
 
@@ -130,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'es'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
