@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-uj%eaih9eat1w$(o+h+^9gm*j6rp5misc_f%onutsk84)sw)*j
 DEBUG = True
 
 #prueba de instancia
-ALLOWED_HOSTS = ['35.232.59.58']
+ALLOWED_HOSTS = []#'35.232.59.58']
 
 
 

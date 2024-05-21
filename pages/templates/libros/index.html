@@ -5,7 +5,7 @@
 {% block header_title %} {{ subtitle }} 
 {% if user.is_authenticated %}
         <hr> 
-        <a class="nav-link active" href="{% url 'form' %}">{% trans "Crear libros" %}</a>
+        <a class="nav-link active button-blue" href="{% url 'form' %}">{% trans "Crear libros" %}</a>
         {% comment %} !!! Revisar caso de Admin {% endcomment %}
         {% comment %} {% if user.tipo_usuario == 'Admin' %}
             <a class="nav-link active" href="{% url 'form' %}">{% trans "Crear libros" %}</a>
@@ -19,6 +19,25 @@
 
 
 {% block content %}
+{% comment %} Css {% endcomment %}
+<style>
+  .button-blue {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: blue;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+
+  .button-blue:hover {
+      background-color: darkblue;
+  }
+</style>
+
 <div class="row">
   {% for libro in libros %}
   <div class="col-md-4 col-lg-3 mb-2">
@@ -27,7 +46,8 @@
       <div class="card-body text-center">
         <a href="{% url 'show' id=libro.id %}"
           class="btn bg-primary text-black">{{ libro.Titulo }}</a>
-          <p>{{ libro.precio }}</p>
+          <br><br>
+          <p>Precio: {{ libro.precio }}</p>
       </div>
     </div>
   </div>

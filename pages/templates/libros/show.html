@@ -4,6 +4,24 @@
 {% block header_title %} {{ subtitle }} {% endblock %}
 {% comment %} programado por: Andres Rua, Jose Valencia y Juan Pavas {% endcomment %}
 {% block content %}
+{% comment %} Css {% endcomment %}
+<style>
+  .button-red {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+
+  .button-red:hover {
+      background-color: darkred;
+  }
+</style>
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-4">
@@ -13,25 +31,25 @@
       <div class="card-body">
         <h5 class="card-title">{{ libro.Titulo }}</h5>
         {% if libro.precio > 100000 %}
-          <p class="card-text" style="color: red;">{{ libro.precio }}</p>
+          <p class="card-text" style="color: red;">Precio: {{ libro.precio }}</p>
         {% else %}
-          <p class="card-text">{{ libro.precio }}</p>
+          <p class="card-text">Precio: {{ libro.precio }}</p>
         {% endif %}
-        <p class="card-text text-black">{{ libro.Autor }}</p>
-        <div class="card-text text-black">{{ libro.ISBN }}</div>
+        <p class="card-text text-black">Autor: {{ libro.Autor }}</p>
+        <div class="card-text text-black">ISBN: {{ libro.ISBN }}</div>
         {% comment %} <div class="card-text text-black">{{ libro.Numero_paginas }}</div> {% endcomment %}
         {% if libro.Numero_paginas > 600 %}
-            <p class="card-text" style="color: red;">{{ libro.Numero_paginas }}</p>
+            <p class="card-text" style="color: red;">Páginas: {{ libro.Numero_paginas }}</p>
         {% elif libro.Numero_paginas < 300 %}
-            <p class="card-text" style="color: green;">{{ libro.Numero_paginas }}</p>
+            <p class="card-text" style="color: green;">Páginas: {{ libro.Numero_paginas }}</p>
         {% else %}
-            <p class="card-text" style="color: orange;">{{ libro.Numero_paginas }}</p>
+            <p class="card-text" style="color: orange;">Páginas: {{ libro.Numero_paginas }}</p>
         {% endif %}
-          <div class="card-text text-black">{{ libro.Fecha_publicacion }}</div>
-          <div class="card-text text-black">{{ libro.Editorial }}</div>
+          <div class="card-text text-black">Fecha de Publicación: {{ libro.Fecha_publicacion }}</div>
+          <div class="card-text text-black">Editorial: {{ libro.Editorial }}</div>
         </p>
         {% comment %} quitar style y hacer  {% endcomment %}
-        <a class="nav-link active" style="color: red;" href="{% url 'libro_delete' id=libro.id %}">{% trans "Borrar libro" %}</a>
+        <a class="nav-link active button-red" href="{% url 'libro_delete' id=libro.id %}">{% trans "Borrar libro" %}</a>
       </div>
     </div>
   </div>

@@ -43,6 +43,10 @@
     </div>
   </nav>
 
+  {% comment %} Imagen Banner para toda pestaña {% endcomment %}
+  <img src="../../static/images/Banner-Mini.png" 
+    alt="{% trans 'Libros' %}" class="img-fluid" style="width: 100%;">
+
   <header class="masthead bg-primary text-white text-center py-4">
     <div class="container d-flex align-items-center flex-column">
       <h2>{% block header_title %}{% trans 'Omnilegents - Tienda de libros' %}{% endblock %}</h2>

@@ -3,18 +3,38 @@
 {% block title %} {{ title }} {% endblock %}
 {% block header_title %} {{ subtitle }}
 <hr>
-<a class="nav-link active" href="{% url 'formota' %}">{% trans "Crear notas" %}</a>
+<a class="nav-link active button-blue" href="{% url 'formota' %}">{% trans "Crear notas" %}</a>
 {% endblock %}
 {% comment %} programado por: Andres Rua, Jose Valencia y Juan Pavas {% endcomment %}
 
 {% block content %}
+{% comment %} Css {% endcomment %}
+<style>
+  .button-blue {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: blue;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+
+  .button-blue:hover {
+      background-color: darkblue;
+  }
+</style>
+
 <div class="row">
   {% for nota in notas %}
   <div class="col-md-4 col-lg-3 mb-2">
     <div class="card">
       <img src="https://play-lh.googleusercontent.com/imEAd3PykpVSA6bRklnje-aDXeljJKHOJFICdhKJilJlJlWabxqWWtM04hE9Nnh3Bg" class="card-img-top img-card">
       <div class="card-body text-center">
-        <a href="{% url 'notas' id=nota.id %}" class="btn bg-primary text-black">{{ nota.titulo_nota }}</a>
+        <p>Titulo: {{ nota.titulo_nota }}</p>
+        <a href="{% url 'notas' id=nota.id %}" class="btn bg-primary text-black">Entrar</a>
       </div>
     </div>
   </div>

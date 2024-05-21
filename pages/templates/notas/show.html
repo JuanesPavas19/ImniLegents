@@ -4,6 +4,24 @@
 {% block header_title %} {{ subtitle }} {% endblock %}
 {% comment %} programado por: Andres Rua, Jose Valencia y Juan Pavas {% endcomment %}
 {% block content %}
+{% comment %} Crear un Css {% endcomment %}
+<style>
+  .button-red {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+
+  .button-red:hover {
+      background-color: darkred;
+  }
+</style>
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-4">
@@ -12,11 +30,12 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">
-           {{ nota.titulo_nota }}
+           Titulo: {{ nota.titulo_nota }}
         </h5>
-        <p class="card-text">{{ nota.contenido_nota }}</p>  
+        <p class="card-text">Contenido: {{ nota.contenido_nota }}</p>  
+        <p class="card-text">Fecha de Creación: {{ nota.fecha_creacion }}</p>  
         
-        <a class="nav-link active" style="color: red;" href="{% url 'nota_delete' id=nota.id %}">{% trans "Borrar notita" %}</a>
+        <a class="nav-link active button-red" href="{% url 'nota_delete' id=nota.id %}">{% trans "Borrar Nota" %}</a>
 
         </div>
       </div>

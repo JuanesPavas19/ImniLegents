@@ -4,6 +4,25 @@
 {% block header_title %} {{subtitle}} {% endblock %}
 {% comment %} programado por: Andres Rua, Jose Valencia y Juan Pavas {% endcomment %}
 {% block content %}
+{% comment %} Css {% endcomment %}
+<style>
+  .button-red {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+
+  .button-red:hover {
+      background-color: darkred;
+  }
+</style>
+
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-4">
@@ -15,7 +34,7 @@
            {{review.Titulo_Review}}
         </h5>
         <p class="card-text">{{review.Titulo_Review}}</p>        
-        <a class="nav-link active" style="color: red;" href="{% url 'review_delete' id=review.id %}">{% trans 'Borrar review' %}</a>
+        <a class="nav-link active button-red" href="{% url 'review_delete' id=review.id %}">{% trans 'Borrar review' %}</a>
         </div>
       </div>
     </div>
